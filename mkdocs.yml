@@ -1,0 +1,109 @@
+site_name: Alloy-it Documentation
+site_description: Reproducible build environments for embedded software teams
+site_url: https://alloy-it.github.io/alloy-docs
+repo_url: https://github.com/alloy-it
+repo_name: alloy-it
+edit_uri: ""
+
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/logo.png     # uncomment and drop logo.png into docs/assets/
+  favicon: assets/logo.png  # uncomment and drop favicon.png into docs/assets/
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/alloy-it
+
+nav:
+  - Home: index.md
+  - Why Alloy-it: why-alloy.md
+  - How It Works: concepts.md
+  - Get Started: get-started/index.md
+  - Using Alloy Hub: using-alloy-hub.md
+  - CI/CD: cicd.md
+  - Installing Environments:
+    - Overview: installing/index.md
+    - On Linux (Native): installing/native.md
+    - With Alloy Host: installing/with-alloy-host.md
+    - In a Docker Image: installing/in-docker.md
+  - Developing Blueprints:
+    - Overview: blueprints/index.md
+    - Blueprint Structure: blueprints/structure.md
+    - Variables & Configuration: blueprints/variables.md
+    - The Layers Approach: blueprints/layers.md
+    - Extend from Alloy Hub: blueprints/extending.md
+    - Write from Scratch: blueprints/from-scratch.md
+    - Publishing to Alloy Hub: blueprints/publishing.md
+  - Catalog:
+    - Available Toolchains: catalog/index.md
+  - Hardware:
+    - USB & Target Boards: hardware/usb-passthrough.md
+  - Reference:
+    - alloy-host Commands: reference/commands.md
+    - Provisioner CLI: reference/provisioner-commands.md
+    - Blueprint Syntax: reference/blueprint-syntax.md
+    - Configuration: reference/configuration.md
+  - Troubleshooting: troubleshooting/index.md
+  - Contributing: contributing/index.md
