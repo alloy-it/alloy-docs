@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://alloy-it.github.io/alloy-docs/installing/with-alloy-host/">
+        <link rel="canonical" href="https://alloy-it.github.io/alloy-docs/reference/provisioner-commands/">
       
       
-        <link rel="prev" href="../native/">
+        <link rel="prev" href="../commands/">
       
       
-        <link rel="next" href="../in-docker/">
+        <link rel="next" href="../blueprint-syntax/">
       
       
       <link rel="icon" href="../../assets/logo.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>With Alloy Host - Alloy-it Documentation</title>
+        <title>Provisioner CLI - Alloy-it Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#with-alloy-host" class="md-skip">
+        <a href="#alloy-provisioner-command-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              With Alloy Host
+              Provisioner CLI
             
           </span>
         </div>
@@ -316,13 +316,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../installing/" class="md-tabs__link">
           
   
   Installing Environments
@@ -390,11 +388,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../reference/commands/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../commands/" class="md-tabs__link">
           
   
   Reference
@@ -613,30 +613,27 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -647,7 +644,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Installing Environments
@@ -661,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../installing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -682,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../native/" class="md-nav__link">
+      <a href="../../installing/native/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -700,30 +697,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    With Alloy Host
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../installing/with-alloy-host/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,149 +709,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install-alloy-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install alloy-host
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choose-a-backend" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose a backend
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-your-first-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create your first environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Create your first environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-initialize" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Initialize
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-start-and-provision" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Start and provision
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-enter-the-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Enter the environment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-stop-when-done" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Stop when done
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#daily-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Daily workflow
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating-the-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Updating the environment
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-multiple-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Managing multiple environments
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#destroying-and-rebuilding" class="md-nav__link">
-    <span class="md-ellipsis">
-      Destroying and rebuilding
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick reference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next steps
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -887,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../in-docker/" class="md-nav__link">
+      <a href="../../installing/in-docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1248,27 +1082,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
-        
-          
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1279,7 +1116,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -1293,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/" class="md-nav__link">
+      <a href="../commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1311,10 +1148,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../reference/provisioner-commands/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Provisioner CLI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1323,6 +1180,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#subcommands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subcommands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subcommands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alloy-provisioner-install-nametag" class="md-nav__link">
+    <span class="md-ellipsis">
+      alloy-provisioner install &lt;name[:tag]&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alloy-provisioner-clone-nametag" class="md-nav__link">
+    <span class="md-ellipsis">
+      alloy-provisioner clone &lt;name[:tag]&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-from-a-local-blueprint-no-subcommand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running from a local blueprint (no subcommand)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1335,7 +1281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/blueprint-syntax/" class="md-nav__link">
+      <a href="../blueprint-syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1356,7 +1302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1444,64 +1390,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-alloy-host" class="md-nav__link">
+  <a href="#subcommands" class="md-nav__link">
     <span class="md-ellipsis">
-      Install alloy-host
+      Subcommands
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choose-a-backend" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose a backend
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-your-first-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create your first environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Create your first environment">
+    <nav class="md-nav" aria-label="Subcommands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-initialize" class="md-nav__link">
+  <a href="#alloy-provisioner-install-nametag" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Initialize
+      alloy-provisioner install &lt;name[:tag]&gt;
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-start-and-provision" class="md-nav__link">
+  <a href="#alloy-provisioner-clone-nametag" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Start and provision
+      alloy-provisioner clone &lt;name[:tag]&gt;
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-enter-the-environment" class="md-nav__link">
+  <a href="#running-from-a-local-blueprint-no-subcommand" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Enter the environment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-stop-when-done" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Stop when done
+      Running from a local blueprint (no subcommand)
     </span>
   </a>
   
@@ -1513,45 +1432,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#daily-workflow" class="md-nav__link">
+  <a href="#flags" class="md-nav__link">
     <span class="md-ellipsis">
-      Daily workflow
+      Flags
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating-the-environment" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Updating the environment
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-multiple-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Managing multiple environments
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#destroying-and-rebuilding" class="md-nav__link">
-    <span class="md-ellipsis">
-      Destroying and rebuilding
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick reference
+      Environment variables
     </span>
   </a>
   
@@ -1581,250 +1473,109 @@
                   
 
 
-<h1 id="with-alloy-host">With Alloy Host<a class="headerlink" href="#with-alloy-host" title="Permanent link">&para;</a></h1>
-<p><strong>alloy-host</strong> is a helper tool for developer workstations. It manages the lifecycle of isolated build environments (VMs and Docker containers) so that alloy-provisioner can run inside them, without touching your host machine.</p>
-<p>Use alloy-host when you want to:</p>
-<ul>
-<li>Keep your host clean and switch between project environments easily.</li>
-<li><strong>Test a blueprint</strong> before publishing to Alloy Hub, without manually setting up a VM.</li>
-<li>Give teammates a one-command environment setup.</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>alloy-host is a convenience wrapper. Any Linux VM you manage yourself (Vagrant, VirtualBox, Proxmox, etc.) can run <a href="../native/">alloy-provisioner natively</a>. alloy-host is not required.</p>
+<h1 id="alloy-provisioner-command-reference">alloy-provisioner Command Reference<a class="headerlink" href="#alloy-provisioner-command-reference" title="Permanent link">&para;</a></h1>
+<p><strong>alloy-provisioner</strong> runs inside a Linux system (bare metal, VM, WSL2, or Docker) and applies a blueprint to install packages, download toolchains, and configure the environment. This page documents the CLI; for the full mental model see <a href="../../concepts/">How Alloy works</a>. The <a href="../commands/">alloy-host</a> reference documents the host-side tool that manages VMs and runs the provisioner inside them.</p>
 <hr />
-<h2 id="install-alloy-host">Install alloy-host<a class="headerlink" href="#install-alloy-host" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Homebrew)</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>brew<span class="w"> </span>install<span class="w"> </span>alloy-it/tap/alloy-host
+<h2 id="subcommands">Subcommands<a class="headerlink" href="#subcommands" title="Permanent link">&para;</a></h2>
+<h3 id="alloy-provisioner-install-nametag"><code>alloy-provisioner install &lt;name[:tag]&gt;</code><a class="headerlink" href="#alloy-provisioner-install-nametag" title="Permanent link">&para;</a></h3>
+<p>Pull a blueprint from the registry and run it immediately. This is the recommended way to provision from <a href="https://alloy-it.io">Alloy Hub</a>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/nrf91:1.0.13
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>myproject/my-blueprint<span class="w"> </span>--registry<span class="w"> </span>my-registry.example.com
 </span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># amd64</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://github.com/alloy-it/alloy-host-releases/releases/download/latest/alloy-host_linux_amd64.tar.gz<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xz<span class="w"> </span>-C<span class="w"> </span>/usr/local/bin<span class="w"> </span>alloy-host
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># arm64</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://github.com/alloy-it/alloy-host-releases/releases/download/latest/alloy-host_linux_arm64.tar.gz<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xz<span class="w"> </span>-C<span class="w"> </span>/usr/local/bin<span class="w"> </span>alloy-host
+<h3 id="alloy-provisioner-clone-nametag"><code>alloy-provisioner clone &lt;name[:tag]&gt;</code><a class="headerlink" href="#alloy-provisioner-clone-nametag" title="Permanent link">&para;</a></h3>
+<p>Pull blueprint files from the registry without running them. Files are written to the blueprint directory (default <code>~/.alloy-it/</code>). Run the provisioner afterward with <code>alloy-provisioner</code> (no subcommand) to apply the blueprint.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>alloy-provisioner<span class="w"> </span>clone<span class="w"> </span>community/raspberry-pi
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Inspect the blueprint, then:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>alloy-provisioner
 </span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>Download <code>alloy-host_windows_amd64.zip</code> from <a href="https://github.com/alloy-it/alloy-host-releases/releases/latest">alloy-host-releases</a>, extract, and add to your <code>PATH</code>.</p>
-</div>
-</div>
-</div>
-<p>Verify:</p>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host check-health
-```
-</code></pre></div>
-<p>This confirms alloy-host can find the required backend tools.</p>
+<h3 id="running-from-a-local-blueprint-no-subcommand">Running from a local blueprint (no subcommand)<a class="headerlink" href="#running-from-a-local-blueprint-no-subcommand" title="Permanent link">&para;</a></h3>
+<p>If the blueprint is already on disk (e.g. after <code>clone</code>, or a local project):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span></code></pre></div>
+<p>Or set the directory via environment variable:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOY_BLUEPRINT_DIR</span><span class="o">=</span>/path/to/blueprint
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner
+</span></code></pre></div>
 <hr />
-<h2 id="choose-a-backend">Choose a backend<a class="headerlink" href="#choose-a-backend" title="Permanent link">&para;</a></h2>
-<p>alloy-host supports three backends:</p>
+<h2 id="flags">Flags<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Backend</th>
 <th>Flag</th>
-<th>Platforms</th>
-<th>Notes</th>
+<th>Description</th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>VirtualBox + Vagrant</td>
-<td><code>--backend vm</code> (default)</td>
-<td>Windows, macOS, Linux</td>
-<td>Requires VirtualBox and Vagrant installed</td>
+<td><code>-blueprint-dir</code></td>
+<td>Path to the blueprint directory. Overrides <code>ALLOY_BLUEPRINT_DIR</code>.</td>
+<td><code>$HOME/.alloy-it</code></td>
 </tr>
 <tr>
-<td>WSL2</td>
-<td><code>--backend wsl2</code></td>
-<td>Windows</td>
-<td>Fast; requires WSL2 enabled</td>
+<td><code>-registry</code></td>
+<td>Registry base URL for pulling blueprints. Overrides <code>ALLOY_REGISTRY</code>.</td>
+<td><code>api.alloy-it.io</code></td>
 </tr>
 <tr>
-<td>Docker</td>
-<td><code>--backend docker</code></td>
-<td>All</td>
-<td>Requires Docker installed</td>
+<td><code>-tag</code></td>
+<td>Blueprint tag/version (with <code>-pull</code>).</td>
+<td><code>latest</code></td>
+</tr>
+<tr>
+<td><code>-platform</code></td>
+<td>Force OS/architecture (e.g. <code>linux/arm64</code>).</td>
+<td>Auto-detect</td>
+</tr>
+<tr>
+<td><code>-env-file</code></td>
+<td>Path to an env file for variables and credentials (see <a href="../../blueprints/variables/">Variables</a>).</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>-version</code></td>
+<td>Print version and exit.</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<p><strong>VirtualBox + Vagrant prerequisites</strong> (default backend):</p>
-<ul>
-<li>macOS / Linux: install <a href="https://www.virtualbox.org/">VirtualBox</a> and <a href="https://www.vagrantup.com/">Vagrant</a></li>
-<li>Windows: same, or use WSL2 instead</li>
-<li>Apple Silicon (M1/M2/M3): requires VirtualBox 7.1 or later</li>
-</ul>
+<p>Legacy: <code>-pull</code>, <code>-repository</code> are still supported; prefer the <code>install</code> and <code>clone</code> subcommands.</p>
 <hr />
-<h2 id="create-your-first-environment">Create your first environment<a class="headerlink" href="#create-your-first-environment" title="Permanent link">&para;</a></h2>
-<h3 id="1-initialize">1. Initialize<a class="headerlink" href="#1-initialize" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host init arm-dev --blueprint community/arm-none-eabi
-```
-</code></pre></div>
-<p>This creates an <code>arm-dev/</code> directory with the backend configuration and blueprint reference. The VM does not start yet.</p>
-<p>To use a local blueprint instead:</p>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host init arm-dev --blueprint ./path/to/blueprint
-```
-</code></pre></div>
-<p>To use WSL2 or Docker:</p>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host init arm-dev --blueprint community/arm-none-eabi --backend wsl2
-alloy-host init arm-dev --blueprint community/arm-none-eabi --backend docker
-```
-</code></pre></div>
-<h3 id="2-start-and-provision">2. Start and provision<a class="headerlink" href="#2-start-and-provision" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code>```bash
-cd arm-dev
-alloy-host up
-```
-</code></pre></div>
-<p>alloy-host starts the backend, installs alloy-provisioner inside the guest, and runs the blueprint. You'll see each task execute in sequence. The first run downloads toolchains; this takes a few minutes.</p>
-<div class="language-text highlight"><pre><span></span><code>```toml
-Bringing machine up...
-Running provisioner...
-✔  Update APT cache
-✔  Install build tools
-✔  Install ARM GCC toolchain
-✔  Configure PATH
-Provisioning complete.
-```
-</code></pre></div>
-<p>Running <code>alloy-host up</code> again is safe; completed tasks are skipped.</p>
-<h3 id="3-enter-the-environment">3. Enter the environment<a class="headerlink" href="#3-enter-the-environment" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host ssh
-```
-</code></pre></div>
-<p>You're now inside the VM (or WSL2/Docker container). Your host project directory is mounted at <code>/vagrant</code>. Verify the toolchain:</p>
-<div class="language-text highlight"><pre><span></span><code>```bash
-arm-none-eabi-gcc --version
-cmake --version
-ninja --version
-```
-</code></pre></div>
-<h3 id="4-stop-when-done">4. Stop when done<a class="headerlink" href="#4-stop-when-done" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host stop
-```
-</code></pre></div>
-<p>The environment is suspended with everything intact. Resume later with <code>alloy-host up</code>.</p>
-<hr />
-<h2 id="daily-workflow">Daily workflow<a class="headerlink" href="#daily-workflow" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code>```mermaid
-flowchart LR
-    Up[alloy-host up] --&gt; SSH[alloy-host ssh]
-    SSH --&gt; Work[work inside env]
-    Work --&gt; Stop[alloy-host stop]
-```
-
-```bash
-alloy-host up        # start the environment
-alloy-host ssh       # open a shell inside it
-# ... do your work ...
-alloy-host stop      # shut it down when done
-```
-</code></pre></div>
-<p>When inside the environment directory you can omit the name. From anywhere else:</p>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host ssh arm-dev
-alloy-host up stm32-proj
-```
-</code></pre></div>
-<hr />
-<h2 id="updating-the-environment">Updating the environment<a class="headerlink" href="#updating-the-environment" title="Permanent link">&para;</a></h2>
-<p>When your blueprint changes, re-provision the running environment:</p>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host provision
-```
-</code></pre></div>
-<p>Only new or changed tasks run. Everything else is skipped.</p>
-<hr />
-<h2 id="managing-multiple-environments">Managing multiple environments<a class="headerlink" href="#managing-multiple-environments" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host list
-```
-</code></pre></div>
-<p>Shows all registered environments with status, backend, and blueprint.</p>
-<hr />
-<h2 id="destroying-and-rebuilding">Destroying and rebuilding<a class="headerlink" href="#destroying-and-rebuilding" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host destroy       # delete the VM (project files on host are not affected)
-alloy-host up            # reprovisioned from scratch
-```
-</code></pre></div>
-<p>For a complete clean slate (also wipes the persistent data disk):</p>
-<div class="language-text highlight"><pre><span></span><code>```bash
-alloy-host destroy --all
-alloy-host up
-```
-</code></pre></div>
-<hr />
-<h2 id="quick-reference">Quick reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Command</th>
-<th>What it does</th>
+<th>Variable</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>alloy-host init &lt;name&gt; --blueprint &lt;bp&gt;</code></td>
-<td>Create environment directory</td>
+<td><code>ALLOY_BLUEPRINT_DIR</code></td>
+<td>Blueprint directory path (same as <code>-blueprint-dir</code>).</td>
 </tr>
 <tr>
-<td><code>alloy-host up [name]</code></td>
-<td>Start or recreate the environment</td>
+<td><code>ALLOY_REGISTRY</code></td>
+<td>Registry URL for pulling blueprints.</td>
 </tr>
 <tr>
-<td><code>alloy-host ssh [name]</code></td>
-<td>Open a shell inside the environment</td>
+<td><code>ALLOY_REGISTRY_USERNAME</code></td>
+<td>Username for private registry authentication.</td>
 </tr>
 <tr>
-<td><code>alloy-host provision [name]</code></td>
-<td>Re-run the blueprint (apply updates)</td>
-</tr>
-<tr>
-<td><code>alloy-host stop [name]</code></td>
-<td>Suspend the environment</td>
-</tr>
-<tr>
-<td><code>alloy-host destroy [name]</code></td>
-<td>Delete the environment</td>
-</tr>
-<tr>
-<td><code>alloy-host list</code></td>
-<td>Show all registered environments</td>
-</tr>
-<tr>
-<td><code>alloy-host validate [name]</code></td>
-<td>Validate blueprint syntax</td>
-</tr>
-<tr>
-<td><code>alloy-host resolve [name]</code></td>
-<td>Generate <code>alloy.lock.yml</code> from catalog refs</td>
-</tr>
-<tr>
-<td><code>alloy-host check-health</code></td>
-<td>Verify alloy-host is correctly installed</td>
+<td><code>ALLOY_REGISTRY_PASSWORD</code></td>
+<td>Password or token for private registry authentication.</td>
 </tr>
 </tbody>
 </table>
-<p>Full details: <a href="../../reference/commands/">Command Reference</a></p>
+<p>Custom variables (e.g. for blueprint <code>required_env:</code>) can be set in an env file and passed with <code>-env-file</code>, or exported before running the provisioner.</p>
 <hr />
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../hardware/usb-passthrough/">USB device passthrough</a>: attach development boards to your VM</li>
-<li><a href="../../blueprints/">Write your own blueprint</a></li>
-<li><a href="../../blueprints/publishing/">Sharing with your team</a></li>
+<li><a href="../../installing/">Installing environments</a> — native, alloy-host, Docker</li>
+<li><a href="../../blueprints/variables/">Blueprint variables and env files</a></li>
+<li><a href="../commands/">alloy-host command reference</a></li>
 </ul>
 
 
@@ -1859,19 +1610,19 @@ alloy-host up
   
   <nav class="md-footer__inner md-grid" aria-label="Footer">
     
-    <a href="../native/" class="md-footer__link md-footer__link--prev" aria-label="Previous">
+    <a href="../commands/" class="md-footer__link md-footer__link--prev" aria-label="Previous">
       <div class="md-footer__button md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg></div>
       <div class="md-footer__title">
         <span class="md-footer__direction">Previous</span>
-        <div class="md-ellipsis">On Linux (Native)</div>
+        <div class="md-ellipsis">alloy-host Commands</div>
       </div>
     </a>
     
     
-    <a href="../in-docker/" class="md-footer__link md-footer__link--next" aria-label="Next">
+    <a href="../blueprint-syntax/" class="md-footer__link md-footer__link--next" aria-label="Next">
       <div class="md-footer__title">
         <span class="md-footer__direction">Next</span>
-        <div class="md-ellipsis">In a Docker Image</div>
+        <div class="md-ellipsis">Blueprint Syntax</div>
       </div>
       <div class="md-footer__button md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></div>
     </a>
