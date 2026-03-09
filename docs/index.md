@@ -19,7 +19,9 @@ Browse [alloy-it.io](https://alloy-it.io) to find a blueprint for your toolchain
 On a Linux machine (amd64 or arm64), run the install script. It detects your architecture and installs the binary to `/usr/local/bin/`.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/alloy-it/alloy-provisioner-releases/main/scripts/install.sh | bash
+curl -fsSL \
+  https://raw.githubusercontent.com/alloy-it/alloy-provisioner-releases/main/scripts/install.sh \
+  | bash
 ```
 
 Requirements: `curl` or `wget`, `sudo` access. See [Installing on Linux](installing/native.md) for other options (manual .deb, specific version).

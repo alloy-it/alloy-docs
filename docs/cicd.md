@@ -1,6 +1,6 @@
 # CI/CD Integration
 
-Use the same blueprint that developers use locally to provision build environments in CI. **alloy-provisioner** runs on any Linux runner (bare metal, VM, or Docker) and installs the exact toolchain and dependencies from your blueprint.
+Use the same blueprint that developers use locally to provision build environments in CI. **alloy-provisioner** runs on any Linux runner (PC, laptop, or server, VM, or Docker) and installs the exact toolchain and dependencies from your blueprint.
 
 ---
 
@@ -63,6 +63,6 @@ Never commit credentials; use your CI system’s secret storage.
 
 ## More
 
-- [Installing on Linux (Native)](installing/native.md) — install steps, env file, re-provisioning
-- [In a Docker Image](installing/in-docker.md) — Dockerfile pattern for CI base images
-- [Provisioner CLI](reference/provisioner-commands.md) — flags and environment variables
+- [Installing on Linux (Native)](installing/native.md): install steps, env file, re-provisioning
+- [In a Docker Image](installing/in-docker.md): Dockerfile pattern for CI base images
+- [Provisioner CLI](reference/provisioner-commands.md): flags and environment variables

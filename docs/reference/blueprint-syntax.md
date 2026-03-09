@@ -9,7 +9,7 @@ Complete reference for writing Alloy blueprint files.
 ```text
 blueprint/
 ├── manifest.yml       # required: entry point and metadata
-├── 00-system.yml      # task files — named and ordered as you like
+├── 00-system.yml      # task files: named and ordered as you like
 ├── 10-toolchain.yml
 └── 20-sdk.yml
 ```
@@ -155,7 +155,7 @@ When running inside [alloy-host](../getting-started/with-alloy-host.md), `--wsl2
   exclude: [docker]  # binfmt registration requires privileged mode; skip in Docker
 ```
 
-You can combine `exclude` with `skip_if` — both are checked independently and either condition can cause the task to be skipped.
+You can combine `exclude` with `skip_if`: both are checked independently and either condition can cause the task to be skipped.
 
 ### `run_as`
 

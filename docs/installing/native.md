@@ -1,6 +1,6 @@
 # On Linux (Native)
 
-Install alloy-provisioner directly on any Linux machine: bare metal, a test rack, a CI server, or any existing VM you already manage (VirtualBox, Proxmox, Vagrant, WSL2, etc.). No wrapper tool needed.
+Install alloy-provisioner directly on any Linux machine: a PC, laptop, or server, a test rack, a CI server, or any existing VM you already manage (VirtualBox, Proxmox, Vagrant, WSL2, etc.). No wrapper tool needed.
 
 ---
 

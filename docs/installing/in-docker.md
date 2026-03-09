@@ -109,7 +109,7 @@ This produces correct images when building on both `linux/amd64` and `linux/arm6
 If your blueprint uses `required_env:` or environment variables (for private registries, credentials, or environment-specific settings), pass them as Docker build secrets or `--build-arg`:
 
 ```bash
-# Pass as environment variable (visible in docker inspect — use secrets for sensitive values)
+# Pass as environment variable (visible in docker inspect; use secrets for sensitive values)
 docker build --build-arg GITLAB_TOKEN=xxx -t my-env .
 ```
 

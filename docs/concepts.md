@@ -10,7 +10,7 @@ A **blueprint** is a small directory of YAML files that completely defines a bui
 
 The same blueprint runs everywhere:
 
-- **Natively on Linux**: run alloy-provisioner directly on a bare-metal machine, a test rack, or any existing Linux VM.
+- **Natively on Linux**: run alloy-provisioner directly on a PC, laptop, or server, a test rack, or any existing Linux VM.
 - **In a managed VM**: alloy-host spins up a VM (VirtualBox, WSL2, or Docker) and runs the provisioner inside it.
 - **In a Docker image**: embed alloy-provisioner in a Dockerfile to build reproducible CI base images.
 - **On CI runners**: the exact same blueprint and lockfile give your pipeline the same environment as every developer.
@@ -23,7 +23,7 @@ Blueprints are version-controlled and committed alongside source code. Update th
 
 **alloy-provisioner** is the core engine. It is the tool that actually installs the environment.
 
-It runs **inside** any Linux system (bare metal, VM, WSL2, or Docker container) and:
+It runs **inside** any Linux system (PC, laptop, or server, VM, WSL2, or Docker container) and:
 
 - Reads the blueprint (manifest + task files) and the lockfile.
 - Executes each task in the declared order: install packages, download toolchains, write env files, run custom commands.
@@ -117,7 +117,7 @@ flowchart TD
 
     HOST -->|manages lifecycle| VM["VM / WSL2 / Docker\n(runs alloy-provisioner)"]
 
-    PROV -->|installs into| ENV1["Linux (bare metal)"]
+    PROV -->|installs into| ENV1["Linux (PC / laptop / server)"]
     PROV -->|installs into| ENV2["VM / WSL2"]
     PROV -->|installs into| ENV3["Docker image"]
 ```

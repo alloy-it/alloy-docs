@@ -43,6 +43,6 @@ alloy-host init nrf-dev --blueprint community/nrf91
 
 ## Next steps
 
-- [Get started](get-started/index.md) — choose your installation path (native, alloy-host, Docker).
-- [Installing environments](installing/index.md) — install the provisioner and run a blueprint.
-- [Publishing to Alloy Hub](blueprints/publishing.md) — add a community blueprint or publish an org blueprint.
+- [Get started](get-started/index.md): choose your installation path (native, alloy-host, Docker).
+  - [Installing environments](installing/index.md): install the provisioner and run a blueprint.
+  - [Publishing to Alloy Hub](blueprints/publishing.md): add a community blueprint or publish an org blueprint.

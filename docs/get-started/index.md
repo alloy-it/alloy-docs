@@ -10,7 +10,7 @@
 
     ---
 
-    You have a Linux machine (bare metal, a test rack, an existing VM managed by your own tools like Vagrant, VirtualBox, or Proxmox, or a WSL2 distro). Install alloy-provisioner and run blueprints directly.
+    You have a Linux machine (PC, laptop, or server, test rack, an existing VM managed by your own tools like Vagrant, VirtualBox, or Proxmox, or a WSL2 distro). Install alloy-provisioner and run blueprints directly.
 
     Best for: CI servers, test racks, shared build machines, manually provisioning your own VMs.
 
@@ -44,7 +44,7 @@
 
 | Situation | Recommended path |
 |---|---|
-| CI server or test rack (bare-metal Linux) | [Native](../installing/native.md) |
+| CI server or test rack (Linux PC/laptop/server) | [Native](../installing/native.md) |
 | Existing VM I manage myself | [Native](../installing/native.md): run alloy-provisioner inside the VM |
 | Developer workstation (want isolation) | [alloy-host](../installing/with-alloy-host.md) |
 | Testing a blueprint before publishing | [alloy-host](../installing/with-alloy-host.md) |

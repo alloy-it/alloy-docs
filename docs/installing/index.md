@@ -2,7 +2,7 @@
 
 ## The core idea
 
-**alloy-provisioner** is a single binary that reads a blueprint and installs a complete build environment into any Linux system. The same blueprint, the same result, regardless of whether the target is a bare-metal server, a VM created by any tool, or a Docker container.
+**alloy-provisioner** is a single binary that reads a blueprint and installs a complete build environment into any Linux system. The same blueprint, the same result, regardless of whether the target is a PC, laptop, or server, a VM created by any tool, or a Docker container.
 
 ```mermaid
 flowchart LR
@@ -13,7 +13,7 @@ flowchart LR
     HUB -->|"alloy-provisioner install"| PROV
     BP -->|"--blueprint-dir"| PROV
 
-    PROV --> ENV1["Linux machine\n(bare metal / test rack)"]
+    PROV --> ENV1["Linux machine\n(PC / laptop / server / test rack)"]
     PROV --> ENV2["VM\n(any hypervisor)"]
     PROV --> ENV3["Docker image"]
 ```
@@ -48,7 +48,7 @@ alloy-host catalog search arm
 
 | Path                                  | When to use                                                                    |
 | ------------------------------------- | ------------------------------------------------------------------------------ |
-| [On Linux (Native)](native.md)        | Bare metal, test rack, existing VM, WSL2: any Linux system you already manage |
+| [On Linux (Native)](native.md)        | PC, laptop, or server, test rack, existing VM, WSL2: any Linux system you already manage |
 | [With Alloy Host](with-alloy-host.md) | Developer workstation: isolate environments without touching the host         |
 | [In a Docker Image](in-docker.md)     | Replace complex Dockerfiles with a declarative blueprint; CI base images       |
 

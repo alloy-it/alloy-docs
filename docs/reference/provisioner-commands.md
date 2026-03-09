@@ -1,6 +1,6 @@
 # alloy-provisioner Command Reference
 
-**alloy-provisioner** runs inside a Linux system (bare metal, VM, WSL2, or Docker) and applies a blueprint to install packages, download toolchains, and configure the environment. This page documents the CLI; for the full mental model see [How Alloy works](../concepts.md). The [alloy-host](commands.md) reference documents the host-side tool that manages VMs and runs the provisioner inside them.
+**alloy-provisioner** runs inside a Linux system (PC, laptop, or server, VM, WSL2, or Docker) and applies a blueprint to install packages, download toolchains, and configure the environment. This page documents the CLI; for the full mental model see [How Alloy works](../concepts.md). The [alloy-host](commands.md) reference documents the host-side tool that manages VMs and runs the provisioner inside them.
 
 ---
 
@@ -51,8 +51,8 @@ sudo -E alloy-provisioner
 | `-registry`     | Registry base URL for pulling blueprints. Overrides `ALLOY_REGISTRY`.       | `api.alloy-it.io` |
 | `-tag`          | Blueprint tag/version (with `-pull`).                                      | `latest`          |
 | `-platform`     | Force OS/architecture (e.g. `linux/arm64`).                                | Auto-detect       |
-| `-env-file`     | Path to an env file for variables and credentials (see [Variables](../blueprints/variables.md)). | —        |
-| `-version`      | Print version and exit.                                                     | —                 |
+| `-env-file`     | Path to an env file for variables and credentials (see [Variables](../blueprints/variables.md)). | –        |
+| `-version`      | Print version and exit.                                                     | –                 |
 
 Legacy: `-pull`, `-repository` are still supported; prefer the `install` and `clone` subcommands.
 
@@ -73,6 +73,6 @@ Custom variables (e.g. for blueprint `required_env:`) can be set in an env file 
 
 ## Next steps
 
-- [Installing environments](../installing/index.md) — native, alloy-host, Docker
+- [Installing environments](../installing/index.md): native, alloy-host, Docker
 - [Blueprint variables and env files](../blueprints/variables.md)
 - [alloy-host command reference](commands.md)

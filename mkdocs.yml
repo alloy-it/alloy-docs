@@ -83,6 +83,8 @@ nav:
   - Get Started: get-started/index.md
   - Using Alloy Hub: using-alloy-hub.md
   - CI/CD: cicd.md
+  - Use Cases:
+    - Migrate CI/CD to arm64 (cost reduction): use-cases/arm64-ci-cost-reduction.md
   - Installing Environments:
     - Overview: installing/index.md
     - On Linux (Native): installing/native.md
