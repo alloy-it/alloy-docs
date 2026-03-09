@@ -1529,8 +1529,8 @@ sudo alloy-provisioner --blueprint-dir /path/to/blueprint -env-file ~/.alloy-env
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Never commit <code>.env</code> files</p>
-</div>
 <p>Env files contain credentials. Add them to <code>.gitignore</code>. Use CI/CD secret management for pipeline runners.</p>
+</div>
 <p>If the blueprint declares <code>required_env:</code> in <code>manifest.yml</code>, the provisioner validates all required variables are set before running and exits with a clear error if any are missing.</p>
 <hr />
 <h2 id="re-provisioning">Re-provisioning<a class="headerlink" href="#re-provisioning" title="Permanent link">&para;</a></h2>
