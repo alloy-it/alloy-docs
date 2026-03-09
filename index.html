@@ -1408,48 +1408,36 @@
 <p>Alloy solves this by letting you define your build environment as code: a single blueprint that anyone on your team can use to spin up an identical, isolated VM in minutes. Define your environment once; others can reuse it with one command. No README archaeology, no copy-paste, no "it works on my machine."</p>
 <hr />
 <h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Step 1: Install alloy-provisioner</label><label for="__tabbed_1_2">Step 2: Pick a blueprint from Alloy Hub</label><label for="__tabbed_1_3">Step 3: Install the environment</label><label for="__tabbed_1_4">Step 4: Start building</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Step 1: Choose your blueprint from Alloy Hub</label><label for="__tabbed_1_2">Step 2: Download and install alloy-provisioner</label><label for="__tabbed_1_3">Step 3: Install the environment</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Download and install the alloy-provisioner binary on any Linux machine, VM, or Docker container.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Download the latest release (amd64)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>wget<span class="w"> </span>https://github.com/alloy-it/alloy-provisioner-releases/releases/download/latest/alloy-provisioner_latest_linux_amd64.deb
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>alloy-provisioner_latest_linux_amd64.deb
-</span></code></pre></div>
+<p>Browse <a href="https://alloy-it.io">alloy-it.io</a> to find a blueprint for your toolchain or board. Note the blueprint name (e.g. <code>community/arm-none-eabi</code>, <code>community/raspberry-pi-arm64</code>) and optional version tag.</p>
 </div>
 <div class="tabbed-block">
-<p>Browse <a href="https://alloy-it.io">alloy-it.io</a> or search locally to find a ready-made environment for your toolchain.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>alloy-host<span class="w"> </span>catalog<span class="w"> </span>update
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>alloy-host<span class="w"> </span>catalog<span class="w"> </span>search<span class="w"> </span>arm
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Find the ID you need, e.g. community/arm-none-eabi</span>
+<p>On a Linux machine (amd64 or arm64), run the install script. It detects your architecture and installs the binary to <code>/usr/local/bin/</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://alloy-it.io/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </span></code></pre></div>
+<p>Requirements: <code>curl</code> or <code>wget</code>, <code>sudo</code> access. See <a href="installing/native/">Installing on Linux</a> for other options (manual .deb, specific version).</p>
 </div>
 <div class="tabbed-block">
-<p>One command installs the full build environment: packages, toolchain, env vars, everything.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi
+<p>Run the provisioner with your blueprint. Use the name from Alloy Hub in the form <code>&lt;vendor&gt;/&lt;board&gt;:version</code> (version is optional; defaults to latest).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/raspberry-pi-arm64:1.0.0
 </span></code></pre></div>
-<p>The provisioner pulls the blueprint from Alloy Hub, verifies all SHA256 checksums, and runs each task in order. Re-runs are safe; completed tasks are skipped.</p>
-</div>
-<div class="tabbed-block">
-<p>Your tools are installed and your environment is configured. Source the env file and build.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>/etc/alloy/env
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>arm-none-eabi-gcc<span class="w"> </span>--version
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cmake<span class="w"> </span>--version
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>make
-</span></code></pre></div>
+<p>The provisioner pulls the blueprint, verifies checksums, and installs the full build environment. Re-runs are safe; completed tasks are skipped.</p>
 </div>
 </div>
 </div>
 <hr />
 <h2 id="what-you-get">What you get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h2>
 <p><strong>A defined, versioned build environment</strong>: not a README full of instructions that slowly goes out of date.</p>
-<p><strong>Isolation</strong>: your Zephyr project and your FreeRTOS project live in separate VMs. Upgrading one doesn't break the other.</p>
+<p><strong>Isolation</strong>: your Zephyr project and your Embedded Linux project live in separate environments. Upgrading one doesn't break the other.</p>
 <p><strong>Hardware access</strong>: USB passthrough lets you flash and debug real hardware directly from the VM.</p>
 <p><strong>Reproducibility</strong>: a lockfile records the exact version of every tool. Run it six months later, on any machine, and get the same result.</p>
 <p><strong>Same definition everywhere</strong>: one blueprint for local dev and CI; no separate setup docs or divergent tool versions.</p>
 <hr />
 <h2 id="who-its-for">Who it's for<a class="headerlink" href="#who-its-for" title="Permanent link">&para;</a></h2>
-<p>Alloy is built for <strong>embedded software developers</strong> who are tired of:</p>
+<p>Alloy-it is built for <strong>embedded software developers</strong> who are tired of:</p>
 <ul>
 <li>Spending the first day of a new project setting up their toolchain</li>
 <li>Onboarding a new team member with a multi-page setup doc</li>

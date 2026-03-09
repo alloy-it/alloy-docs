@@ -1592,7 +1592,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
-<p>alloy-host is a convenience wrapper. Any Linux VM you manage yourself (Vagrant, VirtualBox, Proxmox, etc.) can run <a href="../native/">alloy-provisioner natively</a>. alloy-host is not required.</p>
+<p>alloy-host is a helper tool. Any Linux VM/ Container you manage yourself (Vagrant, VirtualBosx, wsl2, etc.) can run <a href="../native/">alloy-provisioner natively</a>. alloy-host is not required.</p>
 <hr />
 <h2 id="install-alloy-host">Install alloy-host<a class="headerlink" href="#install-alloy-host" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Homebrew)</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
@@ -1718,20 +1718,15 @@ alloy-host stop
 <p>The environment is suspended with everything intact. Resume later with <code>alloy-host up</code>.</p>
 <hr />
 <h2 id="daily-workflow">Daily workflow<a class="headerlink" href="#daily-workflow" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code>```mermaid
-flowchart LR
+<pre class="mermaid"><code>flowchart LR
     Up[alloy-host up] --&gt; SSH[alloy-host ssh]
     SSH --&gt; Work[work inside env]
-    Work --&gt; Stop[alloy-host stop]
-```
-
-```bash
-alloy-host up        # start the environment
-alloy-host ssh       # open a shell inside it
-# ... do your work ...
-alloy-host stop      # shut it down when done
-```
-</code></pre></div>
+    Work --&gt; Stop[alloy-host stop]</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>alloy-host<span class="w"> </span>up<span class="w">        </span><span class="c1"># start the environment</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>alloy-host<span class="w"> </span>ssh<span class="w">       </span><span class="c1"># open a shell inside it</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># ... do your work ...</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>alloy-host<span class="w"> </span>stop<span class="w">      </span><span class="c1"># shut it down when done</span>
+</span></code></pre></div>
 <p>When inside the environment directory you can omit the name. From anywhere else:</p>
 <div class="language-text highlight"><pre><span></span><code>```bash
 alloy-host ssh arm-dev

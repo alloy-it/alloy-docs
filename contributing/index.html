@@ -1324,15 +1324,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing-to-alloy-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing to Alloy Host
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#contributing-to-alloy-provisioner" class="md-nav__link">
     <span class="md-ellipsis">
       Contributing to Alloy Provisioner
@@ -1469,15 +1460,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing-to-alloy-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing to Alloy Host
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#contributing-to-alloy-provisioner" class="md-nav__link">
     <span class="md-ellipsis">
       Contributing to Alloy Provisioner
@@ -1592,32 +1574,19 @@
 <li>Your blueprint (if relevant)</li>
 </ul>
 <hr />
-<h2 id="contributing-to-alloy-host">Contributing to Alloy Host<a class="headerlink" href="#contributing-to-alloy-host" title="Permanent link">&para;</a></h2>
-<p>Alloy Host is written in Go. To set up a development environment:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/alloy-it/alloy-host
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>alloy-host
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>make<span class="w"> </span>build
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>./alloy-host<span class="w"> </span>check-health
-</span></code></pre></div>
-<p>Run tests and lint:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>make<span class="w"> </span><span class="nb">test</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>make<span class="w"> </span>lint
-</span></code></pre></div>
-<p>Open a pull request with a description of what the change does and why.</p>
-<hr />
 <h2 id="contributing-to-alloy-provisioner">Contributing to Alloy Provisioner<a class="headerlink" href="#contributing-to-alloy-provisioner" title="Permanent link">&para;</a></h2>
 <p>Alloy Provisioner is also written in Go and uses a ports-and-adapters architecture. Each task action is an independent adapter implementing a single interface, making it straightforward to add new actions.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/alloy-it/alloy-provisioner
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>alloy-provisioner
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>make<span class="w"> </span>build
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>make<span class="w"> </span><span class="nb">test</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/alloy-it/alloy-provisioner
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>alloy-provisioner
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>make<span class="w"> </span>build
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>make<span class="w"> </span><span class="nb">test</span>
 </span></code></pre></div>
 <hr />
 <h2 id="improving-the-documentation">Improving the documentation<a class="headerlink" href="#improving-the-documentation" title="Permanent link">&para;</a></h2>
 <p>Documentation is in the <a href="https://github.com/alloy-it/alloy-docs">alloy-docs</a> repository. To run it locally:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>alloy-docs
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">    </span><span class="c1"># activate the Python venv</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>mkdocs<span class="w"> </span>serve
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>alloy-docs
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">    </span><span class="c1"># activate the Python venv</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>mkdocs<span class="w"> </span>serve
 </span></code></pre></div>
 <p>Open <a href="http://localhost:8000">http://localhost:8000</a> to preview your changes. Submit a pull request with corrections, clarifications, or new content.</p>
 <hr />
