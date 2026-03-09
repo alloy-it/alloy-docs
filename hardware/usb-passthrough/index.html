@@ -1465,23 +1465,25 @@
 <p>Alloy supports passing USB devices (debuggers, development boards, programmers) from your host machine into the VM. You can flash firmware and run a debug session without leaving your development environment.</p>
 <hr />
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">VirtualBox (macOS / Linux)</label><label for="__tabbed_1_2">WSL2 (Windows)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">VirtualBox (macOS / Linux)</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-block"></div>
+</div>
+</div>
 <p>USB passthrough is built into VirtualBox. No additional setup needed.</p>
-<p>Make sure you're in the <code>vboxusers</code> group on Linux:
+<p>Make sure you're in the <code>vboxusers</code> group on Linux:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>vboxusers<span class="w"> </span><span class="nv">$USER</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># log out and back in for the change to take effect</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">WSL2 (Windows)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
-<div class="tabbed-block">
+</div>
 <p>WSL2 requires <strong>usbipd-win</strong> to share USB devices with WSL:</p>
 <div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">winget</span> <span class="n">install</span> <span class="n">usbipd</span>
 </span></code></pre></div>
 <p>After installing, reboot your machine.</p>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="list-connected-usb-devices">List connected USB devices<a class="headerlink" href="#list-connected-usb-devices" title="Permanent link">&para;</a></h2>
 <p>Connect your board or debugger, then:</p>

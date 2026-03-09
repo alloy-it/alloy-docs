@@ -734,6 +734,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Install alloy-provisioner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-install-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick install (script)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-install-deb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual install (.deb)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1381,6 +1405,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Install alloy-provisioner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-install-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick install (script)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-install-deb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual install (.deb)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1447,71 +1495,82 @@
 <p>Install alloy-provisioner directly on any Linux machine: bare metal, a test rack, a CI server, or any existing VM you already manage (VirtualBox, Proxmox, Vagrant, WSL2, etc.). No wrapper tool needed.</p>
 <hr />
 <h2 id="install-alloy-provisioner">Install alloy-provisioner<a class="headerlink" href="#install-alloy-provisioner" title="Permanent link">&para;</a></h2>
-<p>Download and install the <code>.deb</code> package from <a href="https://github.com/alloy-it/alloy-provisioner-releases">alloy-provisioner-releases</a>:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">amd64</label><label for="__tabbed_1_2">arm64</label><label for="__tabbed_1_3">Auto-detect arch</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>/tmp/alloy-provisioner.deb<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>https://github.com/alloy-it/alloy-provisioner-releases/releases/download/latest/alloy-provisioner_latest_linux_amd64.deb
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>/tmp/alloy-provisioner.deb
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>rm<span class="w"> </span>/tmp/alloy-provisioner.deb
+<h3 id="quick-install-script">Quick install (script)<a class="headerlink" href="#quick-install-script" title="Permanent link">&para;</a></h3>
+<p>On Linux (amd64 or arm64), run the install script. It detects your architecture and installs the binary to <code>/usr/local/bin/</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/alloy-it/alloy-provisioner-releases/main/scripts/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </span></code></pre></div>
+<p>Requirements: <code>curl</code> or <code>wget</code>, <code>sudo</code> access. Then verify: <code>alloy-provisioner -version</code>.</p>
+<h3 id="manual-install-deb">Manual install (.deb)<a class="headerlink" href="#manual-install-deb" title="Permanent link">&para;</a></h3>
+<p>Download and install the <code>.deb</code> package from <a href="https://github.com/alloy-it/alloy-provisioner-releases">alloy-provisioner-releases</a>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">amd64</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
-<div class="tabbed-block">
+</div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>/tmp/alloy-provisioner.deb<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>https://github.com/alloy-it/alloy-provisioner-releases/releases/download/latest/alloy-provisioner_latest_linux_arm64.deb
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>https://github.com/alloy-it/alloy-provisioner-releases/releases/download/latest/alloy-provisioner_latest_linux_amd64.deb
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>/tmp/alloy-provisioner.deb
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>rm<span class="w"> </span>/tmp/alloy-provisioner.deb
 </span></code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">arm64</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">ARCH</span><span class="o">=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>/tmp/alloy-provisioner.deb<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="s2">&quot;https://github.com/alloy-it/alloy-provisioner-releases/releases/download/latest/alloy-provisioner_latest_linux_</span><span class="si">${</span><span class="nv">ARCH</span><span class="si">}</span><span class="s2">.deb&quot;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>/tmp/alloy-provisioner.deb
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>rm<span class="w"> </span>/tmp/alloy-provisioner.deb
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>/tmp/alloy-provisioner.deb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">      </span>https://github.com/alloy-it/alloy-provisioner-releases/releases/download/latest/alloy-provisioner_latest_linux_arm64.deb
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>/tmp/alloy-provisioner.deb
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>rm<span class="w"> </span>/tmp/alloy-provisioner.deb
 </span></code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Auto-detect arch</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
 </div>
-</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">ARCH</span><span class="o">=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>/tmp/alloy-provisioner.deb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">      </span><span class="s2">&quot;https://github.com/alloy-it/alloy-provisioner-releases/releases/download/latest/alloy-provisioner_latest_linux_</span><span class="si">${</span><span class="nv">ARCH</span><span class="si">}</span><span class="s2">.deb&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>/tmp/alloy-provisioner.deb
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>rm<span class="w"> </span>/tmp/alloy-provisioner.deb
+</span></code></pre></div>
 <p>Verify the installation:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span>alloy-provisioner<span class="w"> </span>-version
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>alloy-provisioner<span class="w"> </span>-version
 </span></code></pre></div>
 <hr />
 <h2 id="option-a-install-from-alloy-hub">Option A: Install from Alloy Hub<a class="headerlink" href="#option-a-install-from-alloy-hub" title="Permanent link">&para;</a></h2>
 <p>Pull a blueprint from <a href="https://alloy-it.io">Alloy Hub</a> and provision in one step:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi
 </span></code></pre></div>
 <p>To install a specific version:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi:1.2.0
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi:1.2.0
 </span></code></pre></div>
 <p>The provisioner downloads the blueprint, then executes all tasks. It prints progress as it goes and records completed tasks so re-runs skip what is already done.</p>
 <hr />
 <h2 id="option-b-provision-from-a-local-blueprint">Option B: Provision from a local blueprint<a class="headerlink" href="#option-b-provision-from-a-local-blueprint" title="Permanent link">&para;</a></h2>
 <p>If you have a blueprint directory (e.g. committed alongside your project):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Or set the directory via environment variable:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOY_BLUEPRINT_DIR</span><span class="o">=</span>/path/to/blueprint
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOY_BLUEPRINT_DIR</span><span class="o">=</span>/path/to/blueprint
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner
 </span></code></pre></div>
 <hr />
 <h2 id="environment-variables-and-credentials">Environment variables and credentials<a class="headerlink" href="#environment-variables-and-credentials" title="Permanent link">&para;</a></h2>
 <p>Blueprint tasks can use environment variables for credentials, usernames, or environment-specific settings. Set them before running the provisioner using an env file:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="c1"># Create an env file (never commit this file)</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span>cat<span class="w"> </span>&gt;<span class="w"> </span>~/.alloy-env<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s">    GITLAB_TOKEN=glpat-xxxxx</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s">    SDK_DESTINATION=/opt/sdk</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s">    DEV_USERNAME=ubuntu</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s">    EOF</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.alloy-env
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="c1"># Source and run</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="nb">set</span><span class="w"> </span>-a<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.alloy-env<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>+a
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Create an env file (never commit this file)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>~/.alloy-env<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s">GITLAB_TOKEN=glpat-xxxxx</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s">SDK_DESTINATION=/opt/sdk</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s">DEV_USERNAME=ubuntu</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s">EOF</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.alloy-env
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># Source and run</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="nb">set</span><span class="w"> </span>-a<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.alloy-env<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>+a
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Or use the <code>-env-file</code> flag directly:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">    </span>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>~/.alloy-env
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>~/.alloy-env
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Never commit <code>.env</code> files</p>
@@ -1527,8 +1586,8 @@
 <li><strong>Adapter-level checks</strong>: e.g. <code>apt_install</code> only installs packages that are not already present.</li>
 </ol>
 <p>To force all tasks to re-run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">    </span>rm<span class="w"> </span>alloy.state.yml
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>rm<span class="w"> </span>alloy.state.yml
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <hr />
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
