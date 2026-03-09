@@ -1,0 +1,2778 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Reproducible build environments for embedded software teams">
+      
+      
+      
+        <link rel="canonical" href="https://alloy-it.github.io/alloy-docs/reference/blueprint-syntax/">
+      
+      
+        <link rel="prev" href="../commands/">
+      
+      
+        <link rel="next" href="../configuration/">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>Blueprint Syntax - Alloy-it Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#blueprint-syntax-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Alloy-it Documentation" class="md-header__button md-logo" aria-label="Alloy-it Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alloy-it Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Blueprint Syntax
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/alloy-it" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    alloy-it
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../why-alloy/" class="md-tabs__link">
+        
+  
+    
+  
+  Why Alloy-it
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../concepts/" class="md-tabs__link">
+        
+  
+    
+  
+  How It Works
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../get-started/" class="md-tabs__link">
+        
+  
+    
+  
+  Get Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installing/" class="md-tabs__link">
+          
+  
+  Installing Environments
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blueprints/" class="md-tabs__link">
+          
+  
+  Developing Blueprints
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../catalog/" class="md-tabs__link">
+          
+  
+  Catalog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../hardware/usb-passthrough/" class="md-tabs__link">
+          
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../commands/" class="md-tabs__link">
+          
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Alloy-it Documentation" class="md-nav__button md-logo" aria-label="Alloy-it Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Alloy-it Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alloy-it" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    alloy-it
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../why-alloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why Alloy-it
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How It Works
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installing Environments
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Installing Environments
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installing/native/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On Linux (Native)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installing/with-alloy-host/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    With Alloy Host
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installing/in-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    In a Docker Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developing Blueprints
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Developing Blueprints
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueprints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueprints/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blueprint Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueprints/variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables & Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueprints/layers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Layers Approach
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueprints/extending/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extend from Alloy Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueprints/from-scratch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Write from Scratch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueprints/publishing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Publishing to Alloy Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Catalog
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Available Toolchains
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/usb-passthrough/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    USB & Target Boards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Blueprint Syntax
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Blueprint Syntax
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manifestyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      manifest.yml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="manifest.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolchain-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toolchain aliases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task file structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task file structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creates" class="md-nav__link">
+    <span class="md-ellipsis">
+      creates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always_run" class="md-nav__link">
+    <span class="md-ellipsis">
+      always_run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip_if" class="md-nav__link">
+    <span class="md-ellipsis">
+      skip_if
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude" class="md-nav__link">
+    <span class="md-ellipsis">
+      exclude
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_as" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_as
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#owner-and-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      owner and mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per_arch" class="md-nav__link">
+    <span class="md-ellipsis">
+      per_arch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt_install" class="md-nav__link">
+    <span class="md-ellipsis">
+      apt_install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_command" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unarchive_from_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      unarchive_from_url
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unarchive_from_ref" class="md-nav__link">
+    <span class="md-ellipsis">
+      unarchive_from_ref
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write_env_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      write_env_file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unpack" class="md-nav__link">
+    <span class="md-ellipsis">
+      unpack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_target_lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      install_target_lib
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      python_package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rust_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      rust_package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcu_sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      mcu_sdk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_toolchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      cmake_toolchain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_deb_to_sysroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      install_deb_to_sysroot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register_binfmt" class="md-nav__link">
+    <span class="md-ellipsis">
+      register_binfmt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdk_install" class="md-nav__link">
+    <span class="md-ellipsis">
+      sdk_install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      build_artifact
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udev_rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      udev_rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yocto_manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      yocto_manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buildroot_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      buildroot_config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pkg_config_env" class="md-nav__link">
+    <span class="md-ellipsis">
+      pkg_config_env
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lockfile-alloylockyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lockfile (alloy.lock.yml)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manifestyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      manifest.yml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="manifest.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolchain-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toolchain aliases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task file structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task file structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creates" class="md-nav__link">
+    <span class="md-ellipsis">
+      creates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always_run" class="md-nav__link">
+    <span class="md-ellipsis">
+      always_run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip_if" class="md-nav__link">
+    <span class="md-ellipsis">
+      skip_if
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude" class="md-nav__link">
+    <span class="md-ellipsis">
+      exclude
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_as" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_as
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#owner-and-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      owner and mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per_arch" class="md-nav__link">
+    <span class="md-ellipsis">
+      per_arch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt_install" class="md-nav__link">
+    <span class="md-ellipsis">
+      apt_install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_command" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unarchive_from_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      unarchive_from_url
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unarchive_from_ref" class="md-nav__link">
+    <span class="md-ellipsis">
+      unarchive_from_ref
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write_env_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      write_env_file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unpack" class="md-nav__link">
+    <span class="md-ellipsis">
+      unpack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_target_lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      install_target_lib
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      python_package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rust_package" class="md-nav__link">
+    <span class="md-ellipsis">
+      rust_package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcu_sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      mcu_sdk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_toolchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      cmake_toolchain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install_deb_to_sysroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      install_deb_to_sysroot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register_binfmt" class="md-nav__link">
+    <span class="md-ellipsis">
+      register_binfmt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdk_install" class="md-nav__link">
+    <span class="md-ellipsis">
+      sdk_install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      build_artifact
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udev_rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      udev_rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yocto_manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      yocto_manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buildroot_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      buildroot_config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pkg_config_env" class="md-nav__link">
+    <span class="md-ellipsis">
+      pkg_config_env
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lockfile-alloylockyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lockfile (alloy.lock.yml)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="blueprint-syntax-reference">Blueprint Syntax Reference<a class="headerlink" href="#blueprint-syntax-reference" title="Permanent link">&para;</a></h1>
+<p>Complete reference for writing Alloy blueprint files.</p>
+<hr />
+<h2 id="directory-structure">Directory structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>blueprint/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── manifest.yml       # required: entry point and metadata
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── 00-system.yml      # task files — named and ordered as you like
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── 10-toolchain.yml
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└── 20-sdk.yml
+</span></code></pre></div>
+<hr />
+<h2 id="manifestyml">manifest.yml<a class="headerlink" href="#manifestyml" title="Permanent link">&para;</a></h2>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My</span><span class="nv"> </span><span class="s">Environment&quot;</span><span class="w"> </span><span class="c1"># required</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0&quot;</span><span class="w"> </span><span class="c1"># required</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;...&quot;</span><span class="w"> </span><span class="c1"># required</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">variables</span><span class="p">:</span><span class="w"> </span><span class="c1"># optional: reusable values</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">KEY</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value&quot;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">ANOTHER</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;value&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nt">toolchains</span><span class="p">:</span><span class="w"> </span><span class="c1"># optional: catalog-sourced tool references</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;toolchain.arm-gnu.arm-none-eabi@stable&quot;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ARM_GCC&quot;</span><span class="w"> </span><span class="c1"># injects ARM_GCC_URL and ARM_GCC_SHA as variables</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nt">supported_hosts</span><span class="p">:</span><span class="w"> </span><span class="c1"># optional: list of OS/arch this blueprint targets</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linux/amd64</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linux/arm64</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="nt">run_order</span><span class="p">:</span><span class="w"> </span><span class="c1"># required: task files to run, in order</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;00-system.yml&quot;</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10-toolchain.yml&quot;</span>
+</span></code></pre></div>
+<h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
+<p>Variables are referenced in task files with <code>{{.Vars.NAME}}</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># manifest.yml</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">variables</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">GCC_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;13.3.rel1&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">TOOLCHAIN_DIR</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/toolchains&quot;</span>
+</span></code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># in a task file:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://example.com/gcc-{{.Vars.GCC_VERSION}}.tar.xz&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.TOOLCHAIN_DIR}}/arm-gcc&quot;</span>
+</span></code></pre></div>
+<h3 id="toolchain-aliases">Toolchain aliases<a class="headerlink" href="#toolchain-aliases" title="Permanent link">&para;</a></h3>
+<p>When a <code>toolchains:</code> entry has an <code>alias</code>, the resolved URL and SHA256 are injected as variables <code>{ALIAS}_URL</code> and <code>{ALIAS}_SHA</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">toolchains</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;toolchain.arm-gnu.arm-none-eabi@stable&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ARM_GCC&quot;</span>
+</span></code></pre></div>
+<p>This makes <code>{{.Vars.ARM_GCC_URL}}</code> and <code>{{.Vars.ARM_GCC_SHA}}</code> available in task files.</p>
+<hr />
+<h2 id="task-file-structure">Task file structure<a class="headerlink" href="#task-file-structure" title="Permanent link">&para;</a></h2>
+<p>Task files are <strong>flat YAML lists</strong>. Each item is a task object. There is no wrapping key.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Task</span><span class="nv"> </span><span class="s">description&quot;</span><span class="w"> </span><span class="c1"># required</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;action_name&quot;</span><span class="w"> </span><span class="c1"># required</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="c1"># action-specific fields...</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/file&quot;</span><span class="w"> </span><span class="c1"># optional: idempotency guard</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">run_as</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;username&quot;</span><span class="w"> </span><span class="c1"># optional: run as this user (default: root)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user:group&quot;</span><span class="w"> </span><span class="c1"># optional: set ownership after action</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0755&quot;</span><span class="w"> </span><span class="c1"># optional: set permissions after action</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># optional: skip creates check, always run</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="nt">skip_if</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;shell</span><span class="nv"> </span><span class="s">expr&quot;</span><span class="w"> </span><span class="c1"># optional: skip if expression exits 0</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">docker</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">wsl2</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># optional: skip on named environment tags</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="nt">per_arch</span><span class="p">:</span><span class="w"> </span><span class="c1"># optional: architecture-specific overrides</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">amd64</span><span class="p">:</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;...&quot;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">      </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;...&quot;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nt">arm64</span><span class="p">:</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;...&quot;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">      </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;...&quot;</span>
+</span></code></pre></div>
+<h3 id="creates"><code>creates</code><a class="headerlink" href="#creates" title="Permanent link">&para;</a></h3>
+<p>The idempotency guard. If the path exists, the task is skipped. Use it on every task that installs something:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">ARM</span><span class="nv"> </span><span class="s">GCC&quot;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unarchive_from_url&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="c1"># ...</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/toolchains/arm-gcc/bin/arm-none-eabi-gcc&quot;</span>
+</span></code></pre></div>
+<h3 id="always_run"><code>always_run</code><a class="headerlink" href="#always_run" title="Permanent link">&para;</a></h3>
+<p>Bypasses the <code>creates</code> check. Useful for tasks that should run every time, like <code>apt-get update</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Update</span><span class="nv"> </span><span class="s">APT</span><span class="nv"> </span><span class="s">cache&quot;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run_command&quot;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;apt-get</span><span class="nv"> </span><span class="s">update</span><span class="nv"> </span><span class="s">-y&quot;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+<h3 id="skip_if"><code>skip_if</code><a class="headerlink" href="#skip_if" title="Permanent link">&para;</a></h3>
+<p>Skip a task if a shell expression exits 0:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Reload</span><span class="nv"> </span><span class="s">udev</span><span class="nv"> </span><span class="s">rules&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run_command&quot;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;udevadm</span><span class="nv"> </span><span class="s">control</span><span class="nv"> </span><span class="s">--reload-rules</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">udevadm</span><span class="nv"> </span><span class="s">trigger&quot;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">skip_if</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[</span><span class="nv"> </span><span class="s">&quot;$ALLOY_BACKEND&quot;</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">&quot;wsl2&quot;</span><span class="nv"> </span><span class="s">]&#39;</span>
+</span></code></pre></div>
+<h3 id="exclude"><code>exclude</code><a class="headerlink" href="#exclude" title="Permanent link">&para;</a></h3>
+<p>Skip a task on specific named environments. Cleaner and more readable than <code>skip_if</code> for well-known environments.</p>
+<p>Built-in tags:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tag</th>
+<th style="text-align: left;">When active</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>docker</code></td>
+<td style="text-align: left;"><code>--docker</code> flag or <code>ALLOY_ENV_DOCKER=1</code> env var</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>wsl2</code></td>
+<td style="text-align: left;"><code>--wsl2</code> flag or <code>ALLOY_ENV_WSL2=1</code> env var</td>
+</tr>
+</tbody>
+</table>
+<p>When running inside <a href="../getting-started/with-alloy-host.md">alloy-host</a>, <code>--wsl2</code> is automatically passed by the WSL2 backend.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">udev</span><span class="nv"> </span><span class="s">rules&quot;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;udev_rules&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">rule_file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;99-my-device.rules&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">docker</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">wsl2</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># udev doesn&#39;t work inside Docker containers or WSL2</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Register</span><span class="nv"> </span><span class="s">QEMU</span><span class="nv"> </span><span class="s">binfmt&quot;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;register_binfmt&quot;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nt">architecture</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;arm&quot;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nt">interpreter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/bin/qemu-arm-static&quot;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nt">exclude</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">docker</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># binfmt registration requires privileged mode; skip in Docker</span>
+</span></code></pre></div>
+<p>You can combine <code>exclude</code> with <code>skip_if</code> — both are checked independently and either condition can cause the task to be skipped.</p>
+<h3 id="run_as"><code>run_as</code><a class="headerlink" href="#run_as" title="Permanent link">&para;</a></h3>
+<p>Run the task as a specific user instead of root:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">West&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run_command&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">run_as</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;vagrant&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip3</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">--user</span><span class="nv"> </span><span class="s">west&quot;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/vagrant/.local/bin/west&quot;</span>
+</span></code></pre></div>
+<h3 id="owner-and-mode"><code>owner</code> and <code>mode</code><a class="headerlink" href="#owner-and-mode" title="Permanent link">&para;</a></h3>
+<p>Set file ownership and permissions after the action completes:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Write</span><span class="nv"> </span><span class="s">udev</span><span class="nv"> </span><span class="s">rules&quot;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;get_file&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://example.com/99-device.rules&quot;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;abc123...&quot;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/etc/udev/rules.d/99-device.rules&quot;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;root:root&quot;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0644&quot;</span>
+</span></code></pre></div>
+<p><code>mode</code> accepts octal strings (<code>"0755"</code>) or symbolic strings:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Symbolic</th>
+<th style="text-align: left;">Octal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>USER_RWX GROUP_RX OTHER_RX</code></td>
+<td style="text-align: left;"><code>0755</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>USER_RW GROUP_R OTHER_R</code></td>
+<td style="text-align: left;"><code>0644</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>USER_RW GROUP_RW OTHER_NONE</code></td>
+<td style="text-align: left;"><code>0660</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>READ_ALL</code></td>
+<td style="text-align: left;"><code>0444</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>FULL_CONTROL</code></td>
+<td style="text-align: left;"><code>0777</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="per_arch"><code>per_arch</code><a class="headerlink" href="#per_arch" title="Permanent link">&para;</a></h3>
+<p>Override specific fields per host architecture. Supported keys: <code>url</code>, <code>sha256</code>, <code>command</code>, <code>source</code>. Supported architectures: <code>amd64</code>, <code>arm64</code>.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">toolchain&quot;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unarchive_from_url&quot;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://example.com/toolchain-x86_64.tar.xz&quot;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;aaa111...&quot;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/toolchains/arm-gcc&quot;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nt">strip_components</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/toolchains/arm-gcc/bin/arm-none-eabi-gcc&quot;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="nt">per_arch</span><span class="p">:</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="nt">arm64</span><span class="p">:</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://example.com/toolchain-aarch64.tar.xz&quot;</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">      </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bbb222...&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h2>
+<h3 id="apt_install"><code>apt_install</code><a class="headerlink" href="#apt_install" title="Permanent link">&para;</a></h3>
+<p>Install packages from the Debian/Ubuntu APT repository.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">build</span><span class="nv"> </span><span class="s">tools&quot;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;apt_install&quot;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">packages</span><span class="p">:</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;cmake&quot;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;ninja-build&quot;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;gdb-multiarch&quot;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;python3&quot;</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;git&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="run_command"><code>run_command</code><a class="headerlink" href="#run_command" title="Permanent link">&para;</a></h3>
+<p>Run a shell command. <strong><code>reason</code> is required</strong>: it must explain why the task cannot be expressed as one of the dedicated actions. This creates an audit trail and encourages replacing one-off commands with proper primitives over time.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>command</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Shell command to run</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>reason</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Why no dedicated action covers this step</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>run_as</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Run as this user (default: root)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>always_run</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Skip <code>creates</code> check and always run</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>skip_if</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Shell expression; skip if it exits 0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>creates</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Skip if this path already exists</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Update</span><span class="nv"> </span><span class="s">APT</span><span class="nv"> </span><span class="s">cache&quot;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run_command&quot;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;apt-get</span><span class="nv"> </span><span class="s">update</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">dedicated</span><span class="nv"> </span><span class="s">primitive;</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">before</span><span class="nv"> </span><span class="s">any</span><span class="nv"> </span><span class="s">apt_install</span><span class="nv"> </span><span class="s">step.&quot;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;apt-get</span><span class="nv"> </span><span class="s">update</span><span class="nv"> </span><span class="s">-y&quot;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="nt">always_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+<p>Multi-line:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Export</span><span class="nv"> </span><span class="s">Zephyr</span><span class="nv"> </span><span class="s">CMake</span><span class="nv"> </span><span class="s">packages&quot;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run_command&quot;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">reason</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;west</span><span class="nv"> </span><span class="s">zephyr-export</span><span class="nv"> </span><span class="s">registers</span><span class="nv"> </span><span class="s">CMake</span><span class="nv"> </span><span class="s">package</span><span class="nv"> </span><span class="s">paths;</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">dedicated</span><span class="nv"> </span><span class="s">primitive</span><span class="nv"> </span><span class="s">covers</span><span class="nv"> </span><span class="s">CMake</span><span class="nv"> </span><span class="s">package</span><span class="nv"> </span><span class="s">registration.&quot;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">run_as</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;vagrant&quot;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="no">export PATH=$HOME/.local/bin:$PATH</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="no">cd /opt/ncs/v2.9.0 &amp;&amp; west zephyr-export</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/ncs/v2.9.0/.zephyr_exported&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="get_file"><code>get_file</code><a class="headerlink" href="#get_file" title="Permanent link">&para;</a></h3>
+<p>Download a single file to a path.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Download</span><span class="nv"> </span><span class="s">udev</span><span class="nv"> </span><span class="s">rules&quot;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;get_file&quot;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://example.com/99-device.rules&quot;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;abc123...&quot;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/etc/udev/rules.d/99-device.rules&quot;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/etc/udev/rules.d/99-device.rules&quot;</span>
+</span></code></pre></div>
+<p>Supports <code>per_arch</code> for architecture-specific URLs.</p>
+<hr />
+<h3 id="unarchive_from_url"><code>unarchive_from_url</code><a class="headerlink" href="#unarchive_from_url" title="Permanent link">&para;</a></h3>
+<p>Download and extract an archive (<code>.tar.gz</code>, <code>.tar.xz</code>, <code>.tar.bz2</code>, <code>.zip</code>).</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">ARM</span><span class="nv"> </span><span class="s">GCC&quot;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unarchive_from_url&quot;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://developer.arm.com/.../arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz&quot;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6cd1bbc1d9ae57408d592354e4f59a82a2427e86a35cf2b97209c9b67c4b3ac6&quot;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/toolchains/arm-gcc&quot;</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nt">strip_components</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/toolchains/arm-gcc/bin/arm-none-eabi-gcc&quot;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER_RWX</span><span class="nv"> </span><span class="s">GROUP_RX</span><span class="nv"> </span><span class="s">OTHER_RX&quot;</span>
+</span></code></pre></div>
+<p><code>strip_components</code> strips N leading directory levels from paths when extracting.</p>
+<hr />
+<h3 id="unarchive_from_ref"><code>unarchive_from_ref</code><a class="headerlink" href="#unarchive_from_ref" title="Permanent link">&para;</a></h3>
+<p>Download and extract a versioned tool from the Alloy catalog.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">ARM</span><span class="nv"> </span><span class="s">GNU</span><span class="nv"> </span><span class="s">toolchain</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">catalog&quot;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unarchive_from_ref&quot;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;toolchain.arm-gnu.arm-none-eabi@stable&quot;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/toolchains/arm-gcc&quot;</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="nt">strip_components</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/toolchains/arm-gcc/bin/arm-none-eabi-gcc&quot;</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER_RWX</span><span class="nv"> </span><span class="s">GROUP_RX</span><span class="nv"> </span><span class="s">OTHER_RX&quot;</span>
+</span></code></pre></div>
+<p>Ref format: <code>&lt;type&gt;.&lt;vendor&gt;.&lt;tool&gt;@&lt;version-or-alias&gt;</code>. Run <code>alloy-host catalog info &lt;ref&gt;</code> to see available versions.</p>
+<hr />
+<h3 id="write_env_file"><code>write_env_file</code><a class="headerlink" href="#write_env_file" title="Permanent link">&para;</a></h3>
+<p>Write arbitrary content to a file with variable substitution. Used for shell profile scripts, CMake toolchain files, config files.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Add</span><span class="nv"> </span><span class="s">toolchain</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">PATH&quot;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;write_env_file&quot;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/etc/profile.d/arm-gcc.sh&quot;</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="no">#!/bin/sh</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="no">export PATH=$PATH:{{.Vars.TOOLCHAIN_DIR}}/arm-gcc/bin</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="no">export ARM_GCC_ROOT={{.Vars.TOOLCHAIN_DIR}}/arm-gcc</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER_RWX</span><span class="nv"> </span><span class="s">GROUP_RX</span><span class="nv"> </span><span class="s">OTHER_RX&quot;</span>
+</span></code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Create</span><span class="nv"> </span><span class="s">CMake</span><span class="nv"> </span><span class="s">toolchain</span><span class="nv"> </span><span class="s">file&quot;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;write_env_file&quot;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/cmake/arm-none-eabi.cmake&quot;</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="no">set(CMAKE_SYSTEM_NAME Generic)</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="no">set(CMAKE_C_COMPILER arm-none-eabi-gcc)</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="no">set(CMAKE_CXX_COMPILER arm-none-eabi-g++)</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;USER_RW</span><span class="nv"> </span><span class="s">GROUP_R</span><span class="nv"> </span><span class="s">OTHER_R&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="unpack"><code>unpack</code><a class="headerlink" href="#unpack" title="Permanent link">&para;</a></h3>
+<p>Extract a local archive already present inside the VM or at <code>/vagrant</code>.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Unpack</span><span class="nv"> </span><span class="s">bundled</span><span class="nv"> </span><span class="s">tools&quot;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unpack&quot;</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/vagrant/tools/my-tool.tar.gz&quot;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/my-tool&quot;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/my-tool/bin/tool&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="install_target_lib"><code>install_target_lib</code><a class="headerlink" href="#install_target_lib" title="Permanent link">&para;</a></h3>
+<p>Install a package (e.g. a <code>.deb</code>) into a sysroot directory. Used for cross-compilation setups that need target-architecture libraries.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">target</span><span class="nv"> </span><span class="s">library</span><span class="nv"> </span><span class="s">into</span><span class="nv"> </span><span class="s">sysroot&quot;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;install_target_lib&quot;</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://example.com/libfoo-armhf.deb&quot;</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;abc123...&quot;</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span><span class="nt">sysroot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/sysroot&quot;</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/sysroot/usr/lib/libfoo.so&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="python_package"><code>python_package</code><a class="headerlink" href="#python_package" title="Permanent link">&para;</a></h3>
+<p>Install a Python package via <code>pip3</code>. Use this instead of <code>run_command: pip3 install ...</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>package</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">PyPI package name</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>version</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Exact version to install (e.g. <code>"1.3.0"</code>)</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">West&quot;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;python_package&quot;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;west&quot;</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.WEST_VERSION}}&quot;</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/{{.Vars.DEV_USERNAME}}/.local/bin/west&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="rust_package"><code>rust_package</code><a class="headerlink" href="#rust_package" title="Permanent link">&para;</a></h3>
+<p>Install a Rust crate via <code>cargo install</code>. <code>cargo</code> must already be on <code>PATH</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>package</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Crate name on crates.io</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>version</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Exact version to install</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>features</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">List of Cargo features to enable</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">cargo-binutils&quot;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rust_package&quot;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cargo-binutils&quot;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.3.6&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="mcu_sdk"><code>mcu_sdk</code><a class="headerlink" href="#mcu_sdk" title="Permanent link">&para;</a></h3>
+<p>Install a vendor MCU SDK using its native tooling. The install tool (e.g. <code>west</code>) must already be on <code>PATH</code>; install it first with <code>python_package</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>method</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Install method: <code>west</code> or <code>git</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>url</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Repository URL</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>version</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Tag or branch to check out</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dest</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Installation directory</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>run_as</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Run as this user (default: root)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>creates</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Skip if this path already exists</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Initialize</span><span class="nv"> </span><span class="s">nRF</span><span class="nv"> </span><span class="s">Connect</span><span class="nv"> </span><span class="s">SDK&quot;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mcu_sdk&quot;</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;west&quot;</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.NCS_URL}}&quot;</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.NCS_VERSION}}&quot;</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.NCS_BASE}}/{{.Vars.NCS_VERSION}}&quot;</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">  </span><span class="nt">run_as</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.DEV_USERNAME}}&quot;</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.NCS_BASE}}/{{.Vars.NCS_VERSION}}/nrf&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="cmake_toolchain"><code>cmake_toolchain</code><a class="headerlink" href="#cmake_toolchain" title="Permanent link">&para;</a></h3>
+<p>Generate a CMake toolchain file from declared cross-compilation parameters. Prefer this over <code>write_env_file</code> for <code>.cmake</code> files; the provisioner validates all required fields.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>file</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Output path for the <code>.cmake</code> file</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>target_system</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;"><code>CMAKE_SYSTEM_NAME</code> (e.g. <code>Generic</code>, <code>Linux</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>target_processor</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;"><code>CMAKE_SYSTEM_PROCESSOR</code> (e.g. <code>arm</code>, <code>aarch64</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>compiler_prefix</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Toolchain prefix (e.g. <code>arm-none-eabi</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>compiler_path</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Directory containing the compiler binaries</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sysroot</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;"><code>CMAKE_SYSROOT</code> path</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Generate</span><span class="nv"> </span><span class="s">ARM</span><span class="nv"> </span><span class="s">CMake</span><span class="nv"> </span><span class="s">toolchain&quot;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cmake_toolchain&quot;</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/cmake/arm-none-eabi.cmake&quot;</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span><span class="nt">target_system</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Generic&quot;</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">  </span><span class="nt">target_processor</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;arm&quot;</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">  </span><span class="nt">compiler_prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;arm-none-eabi&quot;</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">  </span><span class="nt">compiler_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.ARM_TOOLCHAIN_DEST}}/bin&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="install_deb_to_sysroot"><code>install_deb_to_sysroot</code><a class="headerlink" href="#install_deb_to_sysroot" title="Permanent link">&para;</a></h3>
+<p>Install a <code>.deb</code> package into a cross-compilation sysroot (not the host system). The formalized version of <code>install_target_lib</code> that takes <code>sysroot</code> explicitly.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>url</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">URL of the <code>.deb</code> file (supports <code>per_arch</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sha256</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">SHA256 of the <code>.deb</code> file</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sysroot</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Sysroot directory to install into</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">libfoo</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">ARM&quot;</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;install_deb_to_sysroot&quot;</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://apt.example.com/libfoo_1.0_armhf.deb&quot;</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;abc123...&quot;</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">  </span><span class="nt">sysroot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.SDK_SYSROOT}}&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="register_binfmt"><code>register_binfmt</code><a class="headerlink" href="#register_binfmt" title="Permanent link">&para;</a></h3>
+<p>Register a QEMU interpreter for transparent cross-architecture execution via <code>binfmt_misc</code>. Use this instead of <code>run_command: update-binfmts ...</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>architecture</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Target arch: <code>arm</code>, <code>aarch64</code>, <code>riscv64</code>, etc.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>interpreter</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Path to the QEMU static binary</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>package</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">APT package to install first (e.g. <code>qemu-user-static</code>)</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Register</span><span class="nv"> </span><span class="s">ARM</span><span class="nv"> </span><span class="s">binfmt</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">cross-build&quot;</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;register_binfmt&quot;</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="nt">architecture</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;arm&quot;</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span><span class="nt">interpreter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/bin/qemu-arm-static&quot;</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;qemu-user-static&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="sdk_install"><code>sdk_install</code><a class="headerlink" href="#sdk_install" title="Permanent link">&para;</a></h3>
+<p>Run a self-extracting SDK installer script (Yocto eSDK / Poky pattern). Downloads, verifies SHA256, and executes the installer.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>url</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">URL of the installer script</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sha256</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">SHA256 of the installer script</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dest</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Installation directory</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">Yocto</span><span class="nv"> </span><span class="s">eSDK&quot;</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sdk_install&quot;</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://example.com/poky-toolchain-4.0.sh&quot;</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;abc123...&quot;</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/poky/4.0&quot;</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">  </span><span class="nt">creates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/poky/4.0/environment-setup-cortexa8hf-neon-poky-linux-gnueabi&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="build_artifact"><code>build_artifact</code><a class="headerlink" href="#build_artifact" title="Permanent link">&para;</a></h3>
+<p>Download, verify, and build a source tarball using <code>./configure</code> + <code>make</code>. Use this instead of chaining multiple <code>run_command</code> tasks for source builds.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>artifact_source</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Nested block: <code>url</code> and <code>sha256</code> of the source tarball</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>make_targets</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">List of <code>make</code> targets (e.g. <code>["all", "install"]</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dependencies</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">APT packages to install before building</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>configure_flags</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Arguments for <code>./configure</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>destination</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Install prefix</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Build</span><span class="nv"> </span><span class="s">libusb</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">source&quot;</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;build_artifact&quot;</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">  </span><span class="nt">artifact_source</span><span class="p">:</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://github.com/libusb/libusb/releases/download/v1.0.27/libusb-1.0.27.tar.bz2&quot;</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;abc123...&quot;</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">  </span><span class="nt">dependencies</span><span class="p">:</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;libudev-dev&quot;</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">  </span><span class="nt">configure_flags</span><span class="p">:</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--prefix=/usr&quot;</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--disable-static&quot;</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">  </span><span class="nt">make_targets</span><span class="p">:</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;all&quot;</span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;install&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="udev_rules"><code>udev_rules</code><a class="headerlink" href="#udev_rules" title="Permanent link">&para;</a></h3>
+<p>Download a udev rules file and install it into <code>/etc/udev/rules.d/</code>, then reload udev. Use this instead of <code>write_env_file</code> for rules sourced from a URL.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>url</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">URL of the rules file</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sha256</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">SHA256 of the rules file</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rule_file</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Filename to use in <code>/etc/udev/rules.d/</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">Nordic</span><span class="nv"> </span><span class="s">Semiconductor</span><span class="nv"> </span><span class="s">udev</span><span class="nv"> </span><span class="s">rules&quot;</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;udev_rules&quot;</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://raw.githubusercontent.com/NordicSemiconductor/nrf-udev/main/nrf-udev_1.0.1-all.deb&quot;</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">  </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;abc123...&quot;</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">  </span><span class="nt">rule_file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;99-nordic.rules&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="yocto_manifest"><code>yocto_manifest</code><a class="headerlink" href="#yocto_manifest" title="Permanent link">&para;</a></h3>
+<p>Check out a Yocto layer configuration using <code>kas</code>. Install <code>kas</code> first with <code>python_package</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>url</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">URL of the kas config repository</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dest</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Directory to check out into</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>commit_hash</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Git commit SHA to pin to</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>kas_file</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Path to the kas config YAML inside the repo</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Configure</span><span class="nv"> </span><span class="s">Yocto</span><span class="nv"> </span><span class="s">layers&quot;</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;yocto_manifest&quot;</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://github.com/myorg/my-kas-config.git&quot;</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/yocto/build&quot;</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">  </span><span class="nt">commit_hash</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;abc123def456...&quot;</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">  </span><span class="nt">kas_file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kas/my-machine.yml&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="buildroot_config"><code>buildroot_config</code><a class="headerlink" href="#buildroot_config" title="Permanent link">&para;</a></h3>
+<p>Clone Buildroot at a specific release and apply a defconfig. <code>git</code> must be on <code>PATH</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>url</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Buildroot git repository URL</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dest</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Directory to clone into</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>version</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Tag or branch (e.g. <code>"2024.02"</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>defconfig</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Defconfig name to apply</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>external_tree</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">URL of a Buildroot external tree to also clone</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Set</span><span class="nv"> </span><span class="s">up</span><span class="nv"> </span><span class="s">Buildroot&quot;</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;buildroot_config&quot;</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://git.buildroot.net/buildroot&quot;</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">  </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/opt/buildroot&quot;</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024.02&quot;</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">  </span><span class="nt">defconfig</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;raspberrypi4_defconfig&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="pkg_config_env"><code>pkg_config_env</code><a class="headerlink" href="#pkg_config_env" title="Permanent link">&para;</a></h3>
+<p>Generate a shell environment script that configures <code>pkg-config</code> to search a cross-compilation sysroot. Use after <code>install_deb_to_sysroot</code> or <code>sdk_install</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>sysroot</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Cross-compilation sysroot directory</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>env_file</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Output path (e.g. <code>/etc/profile.d/50-pkgconfig.sh</code>)</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Configure</span><span class="nv"> </span><span class="s">pkg-config</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">ARM</span><span class="nv"> </span><span class="s">sysroot&quot;</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pkg_config_env&quot;</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">  </span><span class="nt">sysroot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.SDK_SYSROOT}}&quot;</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">  </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/etc/profile.d/50-pkgconfig.sh&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="lockfile-alloylockyml">Lockfile (alloy.lock.yml)<a class="headerlink" href="#lockfile-alloylockyml" title="Permanent link">&para;</a></h2>
+<p>Generated by <code>alloy-host resolve</code>. Records the exact download URLs and SHA256 checksums for every catalog-sourced tool, resolved for your host architecture. Commit this file.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># Generated by alloy-host resolve. Commit this file.</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nt">resolved_at</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2026-01-15T10:30:00Z&quot;</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;linux/amd64&quot;</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="nt">toolchains</span><span class="p">:</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">  </span><span class="nt">toolchain.arm-gnu.arm-none-eabi</span><span class="p">:</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://developer.arm.com/downloads/...&quot;</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">    </span><span class="nt">sha256</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6cd1bbc1d9ae57408d592354e4f59a82a2427e86a35cf2b97209c9b67c4b3ac6&quot;</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;archive&quot;</span>
+</span></code></pre></div>
+<p>Regenerate after changing <code>toolchains:</code> entries: <code>alloy-host resolve</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+
+  
+  <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <a href="../commands/" class="md-footer__link md-footer__link--prev" aria-label="Previous">
+      <div class="md-footer__button md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg></div>
+      <div class="md-footer__title">
+        <span class="md-footer__direction">Previous</span>
+        <div class="md-ellipsis">Command Reference</div>
+      </div>
+    </a>
+    
+    
+    <a href="../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next">
+      <div class="md-footer__title">
+        <span class="md-footer__direction">Next</span>
+        <div class="md-ellipsis">Configuration</div>
+      </div>
+      <div class="md-footer__button md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></div>
+    </a>
+    
+  </nav>
+  
+
+
+<div class="md-footer-meta md-typeset">
+  <div class="md-footer-meta__inner md-grid">
+    <div class="md-footer-copyright">
+      <span class="md-footer-copyright__highlight">
+        &copy; 2026 <a href="https://alloy-it.io" target="_blank" rel="noopener">Alloy-it Platform. All rights reserved.</a>
+      </span>
+      &nbsp;&VerticalLine;&nbsp;
+      <a href="../../contributing/index.md">Contributing</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://github.com/alloy-it" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://alloy-it.io" target="_blank" rel="noopener">alloy-it.io</a>
+    </div>
+    
+    <div class="md-social">
+      
+      <a href="https://github.com/alloy-it" target="_blank" rel="noopener" class="md-social__link" title="https://github.com/alloy-it">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+      </a>
+      
+    </div>
+    
+  </div>
+</div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>

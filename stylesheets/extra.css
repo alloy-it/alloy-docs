@@ -1,0 +1,101 @@
+/* Alloy brand colors — extracted from alloy-it.io */
+
+/* Green-to-teal gradient primary */
+:root {
+  --alloy-green: #0ea872;   /* left/dominant green */
+  --alloy-teal:  #0e8faa;   /* right teal-blue */
+}
+
+/* ── Light mode ── */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:              var(--alloy-green);
+  --md-primary-fg-color--light:       #3dbf93;
+  --md-primary-fg-color--dark:        #0a7a53;
+  --md-primary-bg-color:              #ffffff;
+  --md-accent-fg-color:               var(--alloy-teal);
+  --md-accent-fg-color--transparent:  #0e8faa1a;
+}
+
+/* ── Dark mode ── */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:              var(--alloy-green);
+  --md-primary-fg-color--light:       #3dbf93;
+  --md-primary-fg-color--dark:        #0a7a53;
+  --md-accent-fg-color:               #3dbf93;
+}
+
+/* ── Nav bar: gradient matching alloy-it.io hero ── */
+.md-header {
+  background: linear-gradient(135deg, var(--alloy-green) 0%, var(--alloy-teal) 100%);
+}
+
+.md-tabs {
+  background: linear-gradient(135deg, #0ca368 0%, #0d87a2 100%);
+}
+
+/* ── Highlighted / active nav items ── */
+.md-nav__link--active,
+.md-nav__link:focus,
+.md-nav__link:hover {
+  color: var(--alloy-green);
+}
+
+/* ── Footer ── */
+.md-footer-meta {
+  background: linear-gradient(135deg, #0d1f18 0%, #0d1a22 100%);
+}
+
+.md-footer-meta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.md-footer-copyright {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+.md-footer-copyright a {
+  color: #6ee7b7;
+  text-decoration: none;
+}
+
+.md-footer-copyright a:hover {
+  color: #ffffff;
+}
+
+.md-social__link svg {
+  fill: #9ca3af;
+}
+
+.md-social__link:hover svg {
+  fill: #6ee7b7;
+}
+
+/* prev/next footer navigation — full-width dark background */
+.md-footer {
+  background: #111827;
+}
+
+.md-footer__link:hover .md-footer__title,
+.md-footer__link:hover .md-footer__button {
+  color: #6ee7b7;
+}
+
+/* ── Admonition tip: use brand green ── */
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-color: var(--alloy-green);
+}
+.md-typeset .tip > .admonition-title,
+.md-typeset .tip > summary {
+  background-color: #0ea87215;
+}
+.md-typeset .tip > .admonition-title::before,
+.md-typeset .tip > summary::before {
+  background-color: var(--alloy-green);
+}
