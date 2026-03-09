@@ -1,4 +1,4 @@
-/* Alloy brand colors — extracted from alloy-it.io */
+/* Alloy brand colors: extracted from alloy-it.io */
 
 /* Green-to-teal gradient primary */
 :root {
@@ -76,7 +76,7 @@
   fill: #6ee7b7;
 }
 
-/* prev/next footer navigation — full-width dark background */
+/* prev/next footer navigation: full-width dark background */
 .md-footer {
   background: #111827;
 }
