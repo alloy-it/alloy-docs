@@ -1559,7 +1559,7 @@
 <h1 id="alloy">Alloy<a class="headerlink" href="#alloy" title="Permanent link">&para;</a></h1>
 <p><strong>Reproducible build environments for embedded software teams.</strong></p>
 <p>Setting up a cross-compilation toolchain shouldn't take two days. Onboarding a new developer shouldn't mean walking them through a wall of manual steps. And "it builds on my machine" is not an acceptable answer.</p>
-<p>Alloy solves this by letting you define your build environment as code: a single blueprint that anyone on your team can use to spin up an identical, isolated VM in minutes. Define your environment once; others can reuse it with one command. No README archaeology, no copy-paste, no "it works on my machine."</p>
+<p>Alloy solves this by letting you define your build environment as code: a single blueprint that anyone on your team can use to install an identical build environment in minutes — on a native Linux machine, in WSL2, in Docker, or in an isolated VM. Define your environment once; others can reuse it with one command. No README archaeology, no copy-paste, no "it works on my machine."</p>
 <hr />
 <h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
 <h3 id="1-choose-your-blueprint-from-alloy-hub">1. Choose your blueprint from Alloy Hub<a class="headerlink" href="#1-choose-your-blueprint-from-alloy-hub" title="Permanent link">&para;</a></h3>
@@ -1581,7 +1581,7 @@
 <h2 id="what-you-get">What you get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h2>
 <p><strong>A defined, versioned build environment</strong>: not a README full of instructions that slowly goes out of date.</p>
 <p><strong>Isolation</strong>: your Zephyr project and your Embedded Linux project live in separate environments. Upgrading one doesn't break the other.</p>
-<p><strong>Hardware access</strong>: USB passthrough lets you flash and debug real hardware directly from the VM.</p>
+<p><strong>Hardware access</strong>: USB passthrough lets you flash and debug real hardware directly from your environment (when using alloy-host for VM-managed environments).</p>
 <p><strong>Reproducibility</strong>: a lockfile records the exact version of every tool. Run it six months later, on any machine, and get the same result.</p>
 <p><strong>Same definition everywhere</strong>: one blueprint for local dev and CI; no separate setup docs or divergent tool versions.</p>
 <hr />
@@ -1599,7 +1599,7 @@
 <ul>
 <li>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 4a8 8 0 0 1 8 8 8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8m0 2a6 6 0 0 0-6 6 6 6 0 0 0 6 6 6 6 0 0 0 6-6 6 6 0 0 0-6-6m-1 2h1.5v3.78l2.33 2.33-1.06 1.06L14 12.4zM2 18a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3.83c.31.71.71 1.38 1.17 2zm1-5a1 1 0 0 1-1-1 1 1 0 0 1 1-1h2.05L5 12l.05 1zm1-5a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3c-.46.62-.86 1.29-1.17 2z"/></svg></span> <strong><a href="get-started/">Get started in 15 minutes</a></strong></p>
-<p>Install Alloy Host, create your first environment, and SSH in.</p>
+<p>Install alloy-provisioner, pick your deployment path (native, VM, or Docker), and build.</p>
 </li>
 <li>
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5zM6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41zm11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41z"/></svg></span> <strong><a href="catalog/">Browse the catalog</a></strong></p>

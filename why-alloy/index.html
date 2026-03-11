@@ -1549,6 +1549,7 @@
 </ol>
 <p>The result is a running VM where everything is already set up. SSH in and build.</p>
 <p>The blueprint is versioned in git. When you update the toolchain, you update the blueprint, commit it, and your teammates pick up the change with a <code>git pull</code> + <code>alloy-host up</code>. No manual steps, no README updates, no "did you upgrade yet?" conversations.</p>
+<p>alloy-host is one way to use Alloy — it manages VM and container lifecycles for you. You can also run alloy-provisioner directly on any Linux machine, inside WSL2, or as part of a Docker build. The blueprint is the same in all cases; only the host environment changes. See <a href="../get-started/">Get Started</a> for all deployment paths.</p>
 <hr />
 <h2 id="isnt-this-what-docker-is-for">Isn't this what Docker is for?<a class="headerlink" href="#isnt-this-what-docker-is-for" title="Permanent link">&para;</a></h2>
 <p>Docker is a great tool, but it makes specific trade-offs that don't always fit embedded development.</p>
