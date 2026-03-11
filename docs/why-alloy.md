@@ -55,6 +55,8 @@ The result is a running VM where everything is already set up. SSH in and build.
 
 The blueprint is versioned in git. When you update the toolchain, you update the blueprint, commit it, and your teammates pick up the change with a `git pull` + `alloy-host up`. No manual steps, no README updates, no "did you upgrade yet?" conversations.
 
+alloy-host is one way to use Alloy — it manages VM and container lifecycles for you. You can also run alloy-provisioner directly on any Linux machine, inside WSL2, or as part of a Docker build. The blueprint is the same in all cases; only the host environment changes. See [Get Started](get-started/index.md) for all deployment paths.
+
 ---
 
 ## Isn't this what Docker is for?

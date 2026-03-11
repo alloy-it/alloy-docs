@@ -4,7 +4,7 @@
 
 Setting up a cross-compilation toolchain shouldn't take two days. Onboarding a new developer shouldn't mean walking them through a wall of manual steps. And "it builds on my machine" is not an acceptable answer.
 
-Alloy solves this by letting you define your build environment as code: a single blueprint that anyone on your team can use to spin up an identical, isolated VM in minutes. Define your environment once; others can reuse it with one command. No README archaeology, no copy-paste, no "it works on my machine."
+Alloy solves this by letting you define your build environment as code: a single blueprint that anyone on your team can use to install an identical build environment in minutes — on a native Linux machine, in WSL2, in Docker, or in an isolated VM. Define your environment once; others can reuse it with one command. No README archaeology, no copy-paste, no "it works on my machine."
 
 ---
 
@@ -45,7 +45,7 @@ The provisioner pulls the blueprint, verifies checksums, and installs the full b
 
 **Isolation**: your Zephyr project and your Embedded Linux project live in separate environments. Upgrading one doesn't break the other.
 
-**Hardware access**: USB passthrough lets you flash and debug real hardware directly from the VM.
+**Hardware access**: USB passthrough lets you flash and debug real hardware directly from your environment (when using alloy-host for VM-managed environments).
 
 **Reproducibility**: a lockfile records the exact version of every tool. Run it six months later, on any machine, and get the same result.
 
@@ -70,7 +70,7 @@ Alloy-it is built for **embedded software developers** who are tired of:
 
 - :material-clock-fast: **[Get started in 15 minutes](get-started/index.md)**
 
-    Install Alloy Host, create your first environment, and SSH in.
+    Install alloy-provisioner, pick your deployment path (native, VM, or Docker), and build.
 
 - :material-file-code: **[Browse the catalog](catalog/index.md)**
 

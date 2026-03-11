@@ -16,16 +16,6 @@
 
     [Install natively &rarr;](../installing/native.md)
 
-- :material-monitor: **With Alloy Host**
-
-    ---
-
-    You are on a developer workstation (Windows, macOS, or Linux) and want isolated environments that don't touch your host machine. alloy-host manages VM and Docker lifecycles for you.
-
-    Best for: local development, quickly testing a blueprint before publishing, switching between project environments.
-
-    [Use alloy-host &rarr;](../installing/with-alloy-host.md)
-
 - :material-docker: **In a Docker Image**
 
     ---
@@ -35,6 +25,26 @@
     Best for: CI base images, replacing multi-stage Dockerfiles and chains of dependent images.
 
     [Build Docker images &rarr;](../installing/in-docker.md)
+
+- :material-pipeline: **CI/CD Pipelines**
+
+    ---
+
+    You run GitHub Actions, GitLab CI, Jenkins, or another pipeline and want every job to use the same blueprint-defined environment. alloy-provisioner runs in the runner and provisions the toolchain so builds are identical to local and other CI.
+
+    Best for: GitHub Actions, GitLab CI, Jenkins, Azure Pipelines, reproducible build jobs.
+
+    [Set up CI/CD &rarr;](../installing/cicd.md)
+
+- :material-monitor: **With Alloy Host**
+
+    ---
+
+    You are on a developer workstation (Windows, macOS, or Linux) and want isolated environments that don't touch your host machine. alloy-host manages VM and Docker lifecycles for you.
+
+    Best for: local development, quickly testing a blueprint before publishing, switching between project environments.
+
+    [Use alloy-host &rarr;](../installing/with-alloy-host.md)
 
 </div>
 
@@ -46,9 +56,10 @@
 |---|---|
 | CI server or test rack (Linux PC/laptop/server) | [Native](../installing/native.md) |
 | Existing VM I manage myself | [Native](../installing/native.md): run alloy-provisioner inside the VM |
+| Docker CI image or base image | [Docker](../installing/in-docker.md) |
+| GitHub Actions, GitLab CI, Jenkins, etc. | [CI/CD](../installing/cicd.md) |
 | Developer workstation (want isolation) | [alloy-host](../installing/with-alloy-host.md) |
 | Testing a blueprint before publishing | [alloy-host](../installing/with-alloy-host.md) |
-| Docker CI image | [Docker](../installing/in-docker.md) |
 | Multiple devs, same environment | Any path, all using the same blueprint |
 
 ---
