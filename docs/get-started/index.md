@@ -26,7 +26,7 @@
 
     [Build Docker images &rarr;](../installing/in-docker.md)
 
-- :material-pipeline: **CI/CD Pipelines**
+- :material-source-commit: **CI/CD Pipelines**
 
     ---
 
@@ -34,7 +34,7 @@
 
     Best for: GitHub Actions, GitLab CI, Jenkins, Azure Pipelines, reproducible build jobs.
 
-    [Set up CI/CD &rarr;](../installing/cicd.md)
+    [Set up CI/CD &rarr;](../cicd.md)
 
 - :material-monitor: **With Alloy Host**
 
@@ -57,7 +57,7 @@
 | CI server or test rack (Linux PC/laptop/server) | [Native](../installing/native.md) |
 | Existing VM I manage myself | [Native](../installing/native.md): run alloy-provisioner inside the VM |
 | Docker CI image or base image | [Docker](../installing/in-docker.md) |
-| GitHub Actions, GitLab CI, Jenkins, etc. | [CI/CD](../installing/cicd.md) |
+| GitHub Actions, GitLab CI, Jenkins, etc. | [CI/CD](../cicd.md) |
 | Developer workstation (want isolation) | [alloy-host](../installing/with-alloy-host.md) |
 | Testing a blueprint before publishing | [alloy-host](../installing/with-alloy-host.md) |
 | Multiple devs, same environment | Any path, all using the same blueprint |
