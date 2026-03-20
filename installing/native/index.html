@@ -873,6 +873,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Environment variables and credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dev_username-is-auto-detected" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEV_USERNAME is auto-detected
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1544,6 +1559,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Environment variables and credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dev_username-is-auto-detected" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEV_USERNAME is auto-detected
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1644,18 +1674,17 @@
 </span></code></pre></div>
 <hr />
 <h2 id="environment-variables-and-credentials">Environment variables and credentials<a class="headerlink" href="#environment-variables-and-credentials" title="Permanent link">&para;</a></h2>
-<p>Blueprint tasks can use environment variables for credentials, usernames, or environment-specific settings. Set them before running the provisioner using an env file:</p>
+<p>Blueprint tasks can use environment variables for credentials or environment-specific settings. Set them before running the provisioner using an env file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Create an env file (never commit this file)</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>~/.alloy-env<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s">GITLAB_TOKEN=glpat-xxxxx</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s">SDK_DESTINATION=/opt/sdk</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s">DEV_USERNAME=ubuntu</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s">EOF</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.alloy-env
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># Source and run</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="nb">set</span><span class="w"> </span>-a<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.alloy-env<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>+a
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s">EOF</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.alloy-env
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># Source and run</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nb">set</span><span class="w"> </span>-a<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.alloy-env<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>+a
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Or use the <code>-env-file</code> flag directly:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>~/.alloy-env
@@ -1665,6 +1694,12 @@
 <p>Env files contain credentials. Add them to <code>.gitignore</code>. Use CI/CD secret management for pipeline runners.</p>
 </div>
 <p>If the blueprint declares <code>required_env:</code> in <code>manifest.yml</code>, the provisioner validates all required variables are set before running and exits with a clear error if any are missing.</p>
+<h3 id="dev_username-is-auto-detected">DEV_USERNAME is auto-detected<a class="headerlink" href="#dev_username-is-auto-detected" title="Permanent link">&para;</a></h3>
+<p>Blueprints that install SDKs or tools as a non-root user rely on a <code>DEV_USERNAME</code> variable. You do not need to set this manually. When you run <code>sudo alloy-provisioner</code>, the provisioner automatically detects the calling user from <code>$SUDO_USER</code> (or falls back to <code>$USER</code>) and uses it — no <code>.env</code> entry needed.</p>
+<p>You only need to set <code>DEV_USERNAME</code> explicitly when provisioning for a different user than the one running <code>sudo</code>, or in CI environments where both <code>SUDO_USER</code> and <code>USER</code> resolve to <code>root</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># .env</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">DEV_USERNAME</span><span class="o">=</span>ci-build-user
+</span></code></pre></div>
 <hr />
 <h2 id="re-provisioning">Re-provisioning<a class="headerlink" href="#re-provisioning" title="Permanent link">&para;</a></h2>
 <p>Running the provisioner again is always safe. It uses three layers of idempotency:</p>
@@ -1674,8 +1709,8 @@
 <li><strong>Adapter-level checks</strong>: e.g. <code>apt_install</code> only installs packages that are not already present.</li>
 </ol>
 <p>To force all tasks to re-run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>rm<span class="w"> </span>alloy.state.yml
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rm<span class="w"> </span>alloy.state.yml
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <hr />
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>

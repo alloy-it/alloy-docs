@@ -1783,11 +1783,11 @@
 </tr>
 <tr>
 <td><code>run_as</code></td>
-<td>Run the command as this user (e.g. <code>vagrant</code>). Defaults to root.</td>
+<td>Run as this user. Use <code>{{.Vars.DEV_USERNAME}}</code>; auto-detected from sudo context.</td>
 </tr>
 <tr>
 <td><code>owner</code></td>
-<td>Set file ownership after execution (e.g. <code>vagrant:vagrant</code>).</td>
+<td>Set file ownership after execution (e.g. <code>{{.Vars.DEV_USERNAME}}:{{.Vars.DEV_USERNAME}}</code>).</td>
 </tr>
 <tr>
 <td><code>mode</code></td>
