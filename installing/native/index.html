@@ -1666,11 +1666,11 @@
 <hr />
 <h2 id="option-b-provision-from-a-local-blueprint">Option B: Provision from a local blueprint<a class="headerlink" href="#option-b-provision-from-a-local-blueprint" title="Permanent link">&para;</a></h2>
 <p>If you have a blueprint directory (e.g. committed alongside your project):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Or set the directory via environment variable:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOY_BLUEPRINT_DIR</span><span class="o">=</span>/path/to/blueprint
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ALLOY_BLUEPRINT_DIR</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 <hr />
 <h2 id="environment-variables-and-credentials">Environment variables and credentials<a class="headerlink" href="#environment-variables-and-credentials" title="Permanent link">&para;</a></h2>
@@ -1684,10 +1684,10 @@
 </span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
 </span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># Source and run</span>
 </span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nb">set</span><span class="w"> </span>-a<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.alloy-env<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>+a
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Or use the <code>-env-file</code> flag directly:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>~/.alloy-env
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>~/.alloy-env
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Never commit <code>.env</code> files</p>
@@ -1710,7 +1710,7 @@
 </ol>
 <p>To force all tasks to re-run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rm<span class="w"> </span>alloy.state.yml
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <hr />
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>

@@ -1504,7 +1504,7 @@
     PROV["alloy-provisioner"]
 
     HUB --&gt;|"alloy-provisioner install"| PROV
-    BP --&gt;|"--blueprint-dir"| PROV
+    BP --&gt;|"install --blueprint-dir"| PROV
 
     PROV --&gt; ENV1["Linux machine\n(PC / laptop / server / test rack)"]
     PROV --&gt; ENV2["VM\n(any hypervisor)"]

@@ -1643,10 +1643,10 @@
 </span></code></pre></div>
 <p>Source it before running the provisioner:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">set</span><span class="w"> </span>-a<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>.env<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>+a
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Or use the <code>-env-file</code> flag:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>/path/to/.env
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>/path/to/.env
 </span></code></pre></div>
 <p>When using <strong>alloy-host</strong>, pass the env file at init time or place it in the blueprint directory; alloy-host picks it up when running the provisioner inside the guest.</p>
 <hr />
@@ -1662,7 +1662,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>DEV_USERNAME auto-detected from $SUDO_USER: &quot;ubuntu&quot;
 </span></code></pre></div>
 <p><strong>When you need to override it:</strong> provisioning for a different user than the one running <code>sudo</code>, or running in a CI environment where <code>SUDO_USER</code> and <code>USER</code> are both <code>root</code>. In that case set it explicitly:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>/path/to/.env
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>/path/to/.env
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># .env contains: DEV_USERNAME=ci-build-user</span>
 </span></code></pre></div>
 <div class="admonition warning">
@@ -1685,7 +1685,7 @@
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  SDK_DESTINATION — Where to install the proprietary SDK
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Set them in a .env file and run:
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  set -a &amp;&amp; source .env &amp;&amp; set +a &amp;&amp; alloy-provisioner --blueprint-dir .
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  set -a &amp;&amp; source .env &amp;&amp; set +a &amp;&amp; alloy-provisioner install --blueprint-dir .
 </span></code></pre></div>
 <hr />
 <h2 id="5-toolchain-alias-injection">5. Toolchain alias injection<a class="headerlink" href="#5-toolchain-alias-injection" title="Permanent link">&para;</a></h2>

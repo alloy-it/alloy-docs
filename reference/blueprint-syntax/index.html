@@ -2185,7 +2185,11 @@
 </tr>
 </tbody>
 </table>
-<p>When running inside <a href="../getting-started/with-alloy-host.md">alloy-host</a>, <code>--wsl2</code> is automatically passed by the WSL2 backend.</p>
+<p>For standalone <code>alloy-provisioner</code> usage, these tags are activated directly by
+provisioner flags/environment variables and do not depend on <code>alloy-host</code>.</p>
+<p>When running inside <a href="../../installing/with-alloy-host/">alloy-host</a>, environment
+tags are activated by the selected backend (for example WSL2 activates <code>wsl2</code>,
+Docker activates <code>docker</code>).</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">udev</span><span class="nv"> </span><span class="s">rules&quot;</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;udev_rules&quot;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">rule_file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;99-my-device.rules&quot;</span>

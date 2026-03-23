@@ -1770,6 +1770,10 @@
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>alloy-host<span class="w"> </span>up
 </span></code></pre></div>
 <p>alloy-host starts the backend, installs alloy-provisioner inside the guest, and runs the blueprint. You'll see each task execute in sequence. The first run downloads toolchains; this takes a few minutes.</p>
+<p>When you use the WSL2 or Docker backend, <code>alloy-host</code> activates the matching
+runtime environment tag for <code>alloy-provisioner</code> (<code>wsl2</code> or <code>docker</code>). This means
+blueprint tasks that use <code>exclude: [wsl2]</code> or <code>exclude: [docker]</code> are skipped
+automatically.</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Bringing</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">up</span><span class="p">...</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">Running</span><span class="w"> </span><span class="n">provisioner</span><span class="p">...</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="err">✔</span><span class="w">  </span><span class="n">Update</span><span class="w"> </span><span class="n">APT</span><span class="w"> </span><span class="n">cache</span>

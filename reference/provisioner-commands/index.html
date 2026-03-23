@@ -1297,7 +1297,7 @@
           <li class="md-nav__item">
   <a href="#alloy-provisioner-install-nametag" class="md-nav__link">
     <span class="md-ellipsis">
-      alloy-provisioner install &lt;name[:tag]&gt;
+      alloy-provisioner install [name[:tag]]
     </span>
   </a>
   
@@ -1313,9 +1313,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-from-a-local-blueprint-no-subcommand" class="md-nav__link">
+  <a href="#running-from-a-local-blueprint" class="md-nav__link">
     <span class="md-ellipsis">
-      Running from a local blueprint (no subcommand)
+      Running from a local blueprint
     </span>
   </a>
   
@@ -1330,6 +1330,15 @@
   <a href="#flags" class="md-nav__link">
     <span class="md-ellipsis">
       Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-environment-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime environment tags
     </span>
   </a>
   
@@ -1490,7 +1499,7 @@
           <li class="md-nav__item">
   <a href="#alloy-provisioner-install-nametag" class="md-nav__link">
     <span class="md-ellipsis">
-      alloy-provisioner install &lt;name[:tag]&gt;
+      alloy-provisioner install [name[:tag]]
     </span>
   </a>
   
@@ -1506,9 +1515,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-from-a-local-blueprint-no-subcommand" class="md-nav__link">
+  <a href="#running-from-a-local-blueprint" class="md-nav__link">
     <span class="md-ellipsis">
-      Running from a local blueprint (no subcommand)
+      Running from a local blueprint
     </span>
   </a>
   
@@ -1523,6 +1532,15 @@
   <a href="#flags" class="md-nav__link">
     <span class="md-ellipsis">
       Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-environment-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime environment tags
     </span>
   </a>
   
@@ -1565,25 +1583,40 @@
 <p><strong>alloy-provisioner</strong> runs inside a Linux system (PC, laptop, or server, VM, WSL2, or Docker) and applies a blueprint to install packages, download toolchains, and configure the environment. This page documents the CLI; for the full mental model see <a href="../../concepts/">How Alloy works</a>. The <a href="../commands/">alloy-host</a> reference documents the host-side tool that manages VMs and runs the provisioner inside them.</p>
 <hr />
 <h2 id="subcommands">Subcommands<a class="headerlink" href="#subcommands" title="Permanent link">&para;</a></h2>
-<h3 id="alloy-provisioner-install-nametag"><code>alloy-provisioner install &lt;name[:tag]&gt;</code><a class="headerlink" href="#alloy-provisioner-install-nametag" title="Permanent link">&para;</a></h3>
-<p>Pull a blueprint from the registry and run it immediately. This is the recommended way to provision from <a href="https://alloy-it.io">Alloy Hub</a>.</p>
+<h3 id="alloy-provisioner-install-nametag"><code>alloy-provisioner install [name[:tag]]</code><a class="headerlink" href="#alloy-provisioner-install-nametag" title="Permanent link">&para;</a></h3>
+<p>Install supports two modes:</p>
+<ul>
+<li><code>install &lt;name[:tag]&gt;</code>: pull a blueprint from the registry and run it immediately (recommended for <a href="https://alloy-it.io">Alloy Hub</a>).</li>
+<li><code>install</code> with no name (and <code>--blueprint-dir</code>): run a local blueprint directory without pulling from the registry.</li>
+</ul>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/nrf91:1.0.13
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>myproject/my-blueprint<span class="w"> </span>--registry<span class="w"> </span>my-registry.example.com
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Local blueprint (already cloned or in a repo)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
+<p>Use named install when your blueprint is hosted in Alloy Hub/registry.
+Use <code>install --blueprint-dir ...</code> when blueprint files are already on disk.</p>
 <h3 id="alloy-provisioner-clone-nametag"><code>alloy-provisioner clone &lt;name[:tag]&gt;</code><a class="headerlink" href="#alloy-provisioner-clone-nametag" title="Permanent link">&para;</a></h3>
-<p>Pull blueprint files from the registry without running them. Files are written to the blueprint directory (default <code>~/.alloy-it/</code>). Run the provisioner afterward with <code>alloy-provisioner</code> (no subcommand) to apply the blueprint.</p>
+<p>Pull blueprint files from the registry without running them. Files are written to:
+<code>&lt;blueprint-dir&gt;/blueprints/&lt;name&gt;</code> (default base: <code>~/.alloy-it/</code>).</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>alloy-provisioner<span class="w"> </span>clone<span class="w"> </span>community/raspberry-pi
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Inspect the blueprint, then:</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>alloy-provisioner
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>~/.alloy-it/blueprints/community/raspberry-pi
 </span></code></pre></div>
-<h3 id="running-from-a-local-blueprint-no-subcommand">Running from a local blueprint (no subcommand)<a class="headerlink" href="#running-from-a-local-blueprint-no-subcommand" title="Permanent link">&para;</a></h3>
+<h3 id="running-from-a-local-blueprint">Running from a local blueprint<a class="headerlink" href="#running-from-a-local-blueprint" title="Permanent link">&para;</a></h3>
 <p>If the blueprint is already on disk (e.g. after <code>clone</code>, or a local project):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span></code></pre></div>
+<p>Use this when blueprint files are already present locally (for example in a repo
+folder or after <code>clone</code>).</p>
+<p>For Docker builds where you want tasks with <code>exclude: [docker]</code> to be skipped:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--docker<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Or set the directory via environment variable:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOY_BLUEPRINT_DIR</span><span class="o">=</span>/path/to/blueprint
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOY_BLUEPRINT_DIR</span><span class="o">=</span>/path/to/blueprint
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ALLOY_BLUEPRINT_DIR</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 <hr />
 <h2 id="flags">Flags<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h2>
@@ -1597,38 +1630,66 @@
 </thead>
 <tbody>
 <tr>
-<td><code>-blueprint-dir</code></td>
+<td><code>--blueprint-dir</code></td>
 <td>Path to the blueprint directory. Overrides <code>ALLOY_BLUEPRINT_DIR</code>.</td>
 <td><code>$HOME/.alloy-it</code></td>
 </tr>
 <tr>
-<td><code>-registry</code></td>
+<td><code>--registry</code></td>
 <td>Registry base URL for pulling blueprints. Overrides <code>ALLOY_REGISTRY</code>.</td>
 <td><code>api.alloy-it.io</code></td>
 </tr>
 <tr>
-<td><code>-tag</code></td>
-<td>Blueprint tag/version (with <code>-pull</code>).</td>
+<td><code>--tag</code></td>
+<td>Blueprint tag/version for <code>install</code>/<code>clone</code> when not provided as <code>name:tag</code>.</td>
 <td><code>latest</code></td>
 </tr>
 <tr>
-<td><code>-platform</code></td>
+<td><code>--platform</code></td>
 <td>Force OS/architecture (e.g. <code>linux/arm64</code>).</td>
 <td>Auto-detect</td>
 </tr>
 <tr>
-<td><code>-env-file</code></td>
+<td><code>--env-file</code></td>
 <td>Path to an env file for variables and credentials (see <a href="../../blueprints/variables/">Variables</a>).</td>
 <td>–</td>
 </tr>
 <tr>
-<td><code>-version</code></td>
+<td><code>--version</code></td>
 <td>Print version and exit.</td>
 <td>–</td>
 </tr>
 </tbody>
 </table>
 <p>Legacy: <code>-pull</code>, <code>-repository</code> are still supported; prefer the <code>install</code> and <code>clone</code> subcommands.</p>
+<hr />
+<h2 id="runtime-environment-tags">Runtime environment tags<a class="headerlink" href="#runtime-environment-tags" title="Permanent link">&para;</a></h2>
+<p>Use these flags when you want blueprint <code>exclude</code> filters to be evaluated for a
+specific runtime context:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Activates tag</th>
+<th>Typical usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--docker</code></td>
+<td><code>docker</code></td>
+<td>Docker image builds and containerized provisioning</td>
+</tr>
+<tr>
+<td><code>--wsl2</code></td>
+<td><code>wsl2</code></td>
+<td>WSL2 guest provisioning</td>
+</tr>
+</tbody>
+</table>
+<p>Example (<code>docker</code> tag active):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--docker<span class="w"> </span>community/nrf91:1.0.13
+</span></code></pre></div>
 <hr />
 <h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
 <table>
@@ -1654,6 +1715,14 @@
 <tr>
 <td><code>ALLOY_REGISTRY_PASSWORD</code></td>
 <td>Password or token for private registry authentication.</td>
+</tr>
+<tr>
+<td><code>ALLOY_ENV_DOCKER</code></td>
+<td>If set to <code>1</code>, activates the <code>docker</code> environment tag.</td>
+</tr>
+<tr>
+<td><code>ALLOY_ENV_WSL2</code></td>
+<td>If set to <code>1</code>, activates the <code>wsl2</code> environment tag.</td>
 </tr>
 </tbody>
 </table>

@@ -1883,9 +1883,9 @@
 <h3 id="required-environment-variables-missing">Required environment variables missing<a class="headerlink" href="#required-environment-variables-missing" title="Permanent link">&para;</a></h3>
 <p>If the blueprint declares <code>required_env:</code> in <code>manifest.yml</code>, the provisioner exits with a clear error when a variable is missing. Set the variables in your environment or in an env file and pass them when running:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MY_TOKEN</span><span class="o">=</span><span class="s2">&quot;secret&quot;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># or</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>~/.alloy-env
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint<span class="w"> </span>-env-file<span class="w"> </span>~/.alloy-env
 </span></code></pre></div>
 <p>See <a href="../blueprints/variables/">Variables &amp; Configuration</a>.</p>
 <hr />
@@ -1902,7 +1902,7 @@
 <h3 id="permission-denied-or-cannot-write">Permission denied or "cannot write"<a class="headerlink" href="#permission-denied-or-cannot-write" title="Permanent link">&para;</a></h3>
 <p>Most provisioning tasks need root (e.g. installing packages, writing to <code>/opt</code>, <code>/etc</code>). Run with <code>sudo</code>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Tasks that use <code>run_as: someuser</code> still require the process to start as root so the provisioner can switch user where needed.</p>
 <hr />
@@ -1926,7 +1926,7 @@
 <ul>
 <li>Re-running the provisioner is safe: it skips completed tasks (tracked in <code>alloy.state.yml</code>). To force a full re-run, remove the state file and run again:
   <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rm<span class="w"> </span>/path/to/blueprint/alloy.state.yml
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div></li>
 <li>For blueprint from registry: <code>sudo alloy-provisioner install community/arm-none-eabi</code> again will re-use the pulled blueprint and only re-run tasks that need to run.</li>
 </ul>
