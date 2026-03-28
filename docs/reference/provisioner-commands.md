@@ -137,8 +137,49 @@ Custom variables (e.g. for blueprint `required_env:`) can be set in an env file 
 
 ---
 
+## `alloy-provisioner catalog`
+
+The `catalog` subcommand lets you browse and query the [alloy-catalog](https://github.com/alloy-it/alloy-catalog) toolchain repository from the command line — the same catalog that backs Alloy Hub. It is stored locally at `~/.alloy-it/catalog/` and must be fetched before first use.
+
+### `catalog update`
+
+Clone or pull the alloy-catalog repository into `~/.alloy-it/catalog/`:
+
+```bash
+alloy-provisioner catalog update
+```
+
+Run this once before searching, and again to pick up new toolchain versions.
+
+### `catalog search <query>`
+
+Find toolchain descriptors by ID, name, or tag (case-insensitive substring match):
+
+```bash
+alloy-provisioner catalog search arm
+alloy-provisioner catalog search nordic
+alloy-provisioner catalog search golang
+```
+
+### `catalog info <id[@version]>`
+
+Show all versions, providers, and platform download assets for a toolchain:
+
+```bash
+# All versions
+alloy-provisioner catalog info toolchain.arm-gnu.arm-none-eabi
+
+# Specific version
+alloy-provisioner catalog info toolchain.arm-gnu.arm-none-eabi@13.3.rel1
+```
+
+For full background on the catalog — how blueprints reference toolchains, the ref format, and the resolve workflow — see [Available Toolchains](../catalog/index.md).
+
+---
+
 ## Next steps
 
 - [Installing environments](../installing/index.md): native, alloy-host, Docker
 - [Blueprint variables and env files](../blueprints/variables.md)
+- [Available Toolchains (catalog)](../catalog/index.md)
 - [alloy-host command reference](commands.md)

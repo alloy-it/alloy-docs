@@ -6,7 +6,7 @@
 
 **[Alloy Hub](https://alloy-it.io)** is the web-facing registry for community-maintained blueprints and toolchains. Browse and install environments directly from there, or use the command line.
 
-The **catalog** is the metadata store that backs Alloy Hub. It does not store binaries; it stores toolchain IDs, versions, download URLs, and SHA256 checksums per host platform (`linux/amd64`, `linux/arm64`). The catalog lives in the **alloy-catalog** GitHub repository and is synced locally by `alloy-host catalog update`.
+The **catalog** is the metadata store that backs Alloy Hub. It does not store binaries; it stores toolchain IDs, versions, download URLs, and SHA256 checksums per host platform (`linux/amd64`, `linux/arm64`). The catalog lives in the **alloy-catalog** GitHub repository and is synced locally by `alloy-host catalog update` or `alloy-provisioner catalog update`.
 
 ---
 
@@ -38,7 +38,7 @@ flowchart LR
 
 | Step                      | Command                                                                      |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| 1. Update catalog         | `alloy-host catalog update`                                                  |
+| 1. Update catalog         | `alloy-host catalog update` or `alloy-provisioner catalog update`            |
 | 2. Find an entry          | `alloy-host catalog search <term>` then `alloy-host catalog info <id>`       |
 | 3. Reference in blueprint | Add `toolchains:` in `manifest.yml` or use `unarchive_from_ref` in task file |
 | 4. Resolve                | `alloy-host resolve` → writes `alloy.lock.yml`                               |
@@ -48,30 +48,33 @@ flowchart LR
 
 ## Keeping the catalog up to date
 
+Both `alloy-host` and `alloy-provisioner` can manage the local catalog snapshot:
+
 ```bash
+# When using alloy-host (stored in ~/.alloy/catalog/)
 alloy-host catalog update
+
+# When using alloy-provisioner standalone (stored in ~/.alloy-it/catalog/)
+alloy-provisioner catalog update
 ```
 
-This clones or pulls the latest catalog into `~/.alloy-it/catalog/`. Run this before searching or resolving.
+Run this before searching or resolving to ensure you have the latest toolchain entries.
 
 ---
 
 ## Browsing the catalog
 
 ```bash
+# With alloy-host
 alloy-host catalog search arm
-alloy-host catalog search nordic
-alloy-host catalog search golang
-```
-
-To see all versions of a specific entry:
-
-```bash
 alloy-host catalog info toolchain.arm-gnu.arm-none-eabi
-alloy-host catalog info sdk.golang.go
+
+# With alloy-provisioner
+alloy-provisioner catalog search arm
+alloy-provisioner catalog info toolchain.arm-gnu.arm-none-eabi
 ```
 
-Or browse directly on [Alloy Hub](https://alloy-it.io).
+Both tools support the same search and info commands. Or browse directly on [Alloy Hub](https://alloy-it.io).
 
 ---
 
