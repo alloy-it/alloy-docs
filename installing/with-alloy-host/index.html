@@ -1684,40 +1684,33 @@
 <hr />
 <h2 id="install-alloy-host">Install alloy-host<a class="headerlink" href="#install-alloy-host" title="Permanent link">&para;</a></h2>
 <p>The recommended approach is the <strong>bootstrap installer</strong> from <a href="https://github.com/alloy-it/alloy-host-releases">alloy-host-releases</a> (same idea as the <a href="../native/">alloy-provisioner install script</a>). It picks the correct OS/architecture, downloads the official archive, and installs the binary. Details: <a href="https://github.com/alloy-it/alloy-host-releases/blob/main/scripts/README.md"><code>scripts/README.md</code> in alloy-host-releases</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Homebrew)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>brew<span class="w"> </span>install<span class="w"> </span>alloy-it/tap/alloy-host
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/alloy-it/alloy-host-releases/main/scripts/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </span></code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS (bootstrap script)</label></div>
+<p>Installs to <code>/usr/local/bin</code> (requires <code>sudo</code>). To pin a version: add <code>| bash -s -- 0.3.0</code> (use a real tag without <code>v</code>).</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/alloy-it/alloy-host-releases/main/scripts/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </span></code></pre></div>
-<p>Installs to <code>/usr/local/bin</code> (requires <code>sudo</code>). To pin a version: add <code>| bash -s -- 0.3.0</code> (use a real tag without <code>v</code>).</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Linux</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/alloy-it/alloy-host-releases/main/scripts/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
-</span></code></pre></div>
 <p>Installs to <code>/usr/local/bin</code> (requires <code>sudo</code>). Pin a version: <code>…/install.sh | bash -s -- 0.3.0</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
 <p>Download <a href="https://raw.githubusercontent.com/alloy-it/alloy-host-releases/main/scripts/install.ps1"><code>install.ps1</code></a>, then run:</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span>
 </span></code></pre></div>
 <p>By default the script installs under <code>%LOCALAPPDATA%\alloy-host</code> and adds that directory to your user <code>PATH</code>. Alternatively, download <code>alloy-host_latest_windows_amd64.zip</code> or <code>alloy-host_latest_windows_arm64.zip</code> from the <a href="https://github.com/alloy-it/alloy-host-releases/releases/tag/latest">latest release</a>, extract, and add the folder to your <code>PATH</code>.</p>
 <p>Verify:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>alloy-host<span class="w"> </span>check-health
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>alloy-host<span class="w"> </span>check-health
 </span></code></pre></div>
 <p>This confirms alloy-host can find the required backend tools.</p>
 <hr />
@@ -1762,44 +1755,44 @@
 <hr />
 <h2 id="create-your-first-environment">Create your first environment<a class="headerlink" href="#create-your-first-environment" title="Permanent link">&para;</a></h2>
 <h3 id="1-initialize">1. Initialize<a class="headerlink" href="#1-initialize" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>alloy-host<span class="w"> </span>init<span class="w"> </span>arm-dev<span class="w"> </span>--blueprint<span class="w"> </span>community/nordic/nrf91:1.1.3
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>alloy-host<span class="w"> </span>init<span class="w"> </span>arm-dev<span class="w"> </span>--blueprint<span class="w"> </span>community/nordic/nrf91:1.1.3
 </span></code></pre></div>
 <p>This creates an <code>arm-dev/</code> directory with the backend configuration and blueprint reference. The VM does not start yet.</p>
 <p>To use a local blueprint instead:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>alloy-host<span class="w"> </span>init<span class="w"> </span>arm-dev<span class="w"> </span>--blueprint<span class="w"> </span>./path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>alloy-host<span class="w"> </span>init<span class="w"> </span>arm-dev<span class="w"> </span>--blueprint<span class="w"> </span>./path/to/blueprint
 </span></code></pre></div>
 <p>To use WSL2 or Docker:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>alloy-host<span class="w"> </span>init<span class="w"> </span>arm-dev<span class="w"> </span>--blueprint<span class="w"> </span>community/nordic/nrf91:1.1.3<span class="w"> </span>--backend<span class="w"> </span>wsl2
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>alloy-host<span class="w"> </span>init<span class="w"> </span>arm-dev<span class="w"> </span>--blueprint<span class="w"> </span>community/nordic/nrf91:1.1.3<span class="w"> </span>--backend<span class="w"> </span>docker
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>alloy-host<span class="w"> </span>init<span class="w"> </span>arm-dev<span class="w"> </span>--blueprint<span class="w"> </span>community/nordic/nrf91:1.1.3<span class="w"> </span>--backend<span class="w"> </span>wsl2
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>alloy-host<span class="w"> </span>init<span class="w"> </span>arm-dev<span class="w"> </span>--blueprint<span class="w"> </span>community/nordic/nrf91:1.1.3<span class="w"> </span>--backend<span class="w"> </span>docker
 </span></code></pre></div>
 <h3 id="2-start-and-provision">2. Start and provision<a class="headerlink" href="#2-start-and-provision" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>arm-dev
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>alloy-host<span class="w"> </span>up
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>arm-dev
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>alloy-host<span class="w"> </span>up
 </span></code></pre></div>
 <p>alloy-host starts the backend, installs alloy-provisioner inside the guest, and runs the blueprint. You'll see each task execute in sequence. The first run downloads toolchains; this takes a few minutes.</p>
 <p>When you use the WSL2 or Docker backend, <code>alloy-host</code> activates the matching
 runtime environment tag for <code>alloy-provisioner</code> (<code>wsl2</code> or <code>docker</code>). This means
 blueprint tasks that use <code>exclude: [wsl2]</code> or <code>exclude: [docker]</code> are skipped
 automatically.</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Bringing</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">up</span><span class="p">...</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">Running</span><span class="w"> </span><span class="n">provisioner</span><span class="p">...</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="err">✔</span><span class="w">  </span><span class="n">Update</span><span class="w"> </span><span class="n">APT</span><span class="w"> </span><span class="n">cache</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="err">✔</span><span class="w">  </span><span class="n">Install</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">tools</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="err">✔</span><span class="w">  </span><span class="n">Install</span><span class="w"> </span><span class="n">ARM</span><span class="w"> </span><span class="n">GCC</span><span class="w"> </span><span class="n">toolchain</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="err">✔</span><span class="w">  </span><span class="n">Configure</span><span class="w"> </span><span class="n">PATH</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">Provisioning</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Bringing</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">up</span><span class="p">...</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">Running</span><span class="w"> </span><span class="n">provisioner</span><span class="p">...</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="err">✔</span><span class="w">  </span><span class="n">Update</span><span class="w"> </span><span class="n">APT</span><span class="w"> </span><span class="n">cache</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="err">✔</span><span class="w">  </span><span class="n">Install</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">tools</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="err">✔</span><span class="w">  </span><span class="n">Install</span><span class="w"> </span><span class="n">ARM</span><span class="w"> </span><span class="n">GCC</span><span class="w"> </span><span class="n">toolchain</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="err">✔</span><span class="w">  </span><span class="n">Configure</span><span class="w"> </span><span class="n">PATH</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">Provisioning</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span>
 </span></code></pre></div>
 <p>Running <code>alloy-host up</code> again is safe; completed tasks are skipped.</p>
 <h3 id="3-enter-the-environment">3. Enter the environment<a class="headerlink" href="#3-enter-the-environment" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>alloy-host<span class="w"> </span>ssh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>alloy-host<span class="w"> </span>ssh
 </span></code></pre></div>
 <p>You're now inside the VM (or WSL2/Docker container). Your host project directory is mounted at <code>/vagrant</code>. Verify the toolchain:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>arm-none-eabi-gcc<span class="w"> </span>--version
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>cmake<span class="w"> </span>--version
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>ninja<span class="w"> </span>--version
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>arm-none-eabi-gcc<span class="w"> </span>--version
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cmake<span class="w"> </span>--version
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>ninja<span class="w"> </span>--version
 </span></code></pre></div>
 <h3 id="4-stop-when-done">4. Stop when done<a class="headerlink" href="#4-stop-when-done" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>alloy-host<span class="w"> </span>stop
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>alloy-host<span class="w"> </span>stop
 </span></code></pre></div>
 <p>The environment is suspended with everything intact. Resume later with <code>alloy-host up</code>.</p>
 <hr />
@@ -1808,34 +1801,34 @@ automatically.</p>
     Up[alloy-host up] --&gt; SSH[alloy-host ssh]
     SSH --&gt; Work[work inside env]
     Work --&gt; Stop[alloy-host stop]</code></pre>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>alloy-host<span class="w"> </span>up<span class="w">        </span><span class="c1"># start the environment</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>alloy-host<span class="w"> </span>ssh<span class="w">       </span><span class="c1"># open a shell inside it</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># ... do your work ...</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>alloy-host<span class="w"> </span>stop<span class="w">      </span><span class="c1"># shut it down when done</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>alloy-host<span class="w"> </span>up<span class="w">        </span><span class="c1"># start the environment</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>alloy-host<span class="w"> </span>ssh<span class="w">       </span><span class="c1"># open a shell inside it</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># ... do your work ...</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>alloy-host<span class="w"> </span>stop<span class="w">      </span><span class="c1"># shut it down when done</span>
 </span></code></pre></div>
 <p>When inside the environment directory you can omit the name. From anywhere else:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>alloy-host<span class="w"> </span>ssh<span class="w"> </span>arm-dev
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>alloy-host<span class="w"> </span>up<span class="w"> </span>stm32-proj
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>alloy-host<span class="w"> </span>ssh<span class="w"> </span>arm-dev
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>alloy-host<span class="w"> </span>up<span class="w"> </span>stm32-proj
 </span></code></pre></div>
 <hr />
 <h2 id="updating-the-environment">Updating the environment<a class="headerlink" href="#updating-the-environment" title="Permanent link">&para;</a></h2>
 <p>When your blueprint changes, re-provision the running environment:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>alloy-host<span class="w"> </span>provision
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>alloy-host<span class="w"> </span>provision
 </span></code></pre></div>
 <p>Only new or changed tasks run. Everything else is skipped.</p>
 <hr />
 <h2 id="managing-multiple-environments">Managing multiple environments<a class="headerlink" href="#managing-multiple-environments" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>alloy-host<span class="w"> </span>list
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>alloy-host<span class="w"> </span>list
 </span></code></pre></div>
 <p>Shows all registered environments with status, backend, and blueprint.</p>
 <hr />
 <h2 id="destroying-and-rebuilding">Destroying and rebuilding<a class="headerlink" href="#destroying-and-rebuilding" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>alloy-host<span class="w"> </span>destroy<span class="w">       </span><span class="c1"># delete the VM (project files on host are not affected)</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>alloy-host<span class="w"> </span>up<span class="w">            </span><span class="c1"># reprovisioned from scratch</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>alloy-host<span class="w"> </span>destroy<span class="w">       </span><span class="c1"># delete the VM (project files on host are not affected)</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>alloy-host<span class="w"> </span>up<span class="w">            </span><span class="c1"># reprovisioned from scratch</span>
 </span></code></pre></div>
 <p>For a complete clean slate (also wipes the persistent data disk):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>alloy-host<span class="w"> </span>destroy<span class="w"> </span>--all
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>alloy-host<span class="w"> </span>up
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>alloy-host<span class="w"> </span>destroy<span class="w"> </span>--all
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>alloy-host<span class="w"> </span>up
 </span></code></pre></div>
 <hr />
 <h2 id="quick-reference">Quick reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
