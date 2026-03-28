@@ -17,13 +17,7 @@ Use alloy-host when you want to:
 
 The recommended approach is the **bootstrap installer** from [alloy-host-releases](https://github.com/alloy-it/alloy-host-releases) (same idea as the [alloy-provisioner install script](native.md)). It picks the correct OS/architecture, downloads the official archive, and installs the binary. Details: [`scripts/README.md` in alloy-host-releases](https://github.com/alloy-it/alloy-host-releases/blob/main/scripts/README.md).
 
-=== "macOS (Homebrew)"
-
-```bash
-brew install alloy-it/tap/alloy-host
-```
-
-=== "macOS (bootstrap script)"
+=== "macOS"
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/alloy-it/alloy-host-releases/main/scripts/install.sh | bash
