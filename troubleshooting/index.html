@@ -1860,10 +1860,10 @@
 <p>The provisioner pulls blueprints from the registry (default: <code>api.alloy-it.io</code>). If <code>alloy-provisioner install &lt;blueprint&gt;</code> or <code>alloy-provisioner clone &lt;blueprint&gt;</code> fails with a connection or timeout error:</p>
 <ol>
 <li><strong>Network:</strong> Ensure the machine can reach the registry (no firewall or proxy blocking HTTPS).</li>
-<li><strong>Custom registry:</strong> If you use a private registry, set <code>--registry</code> or <code>ALLOY_REGISTRY</code>:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>myorg/my-blueprint<span class="w"> </span>--registry<span class="w"> </span>https://my-registry.example.com
-</span></code></pre></div></li>
+<li><strong>Custom registry:</strong> If you use a private registry, set <code>--registry</code> or <code>ALLOY_REGISTRY</code>:</li>
 </ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>myorg/my-blueprint:1.0.0<span class="w"> </span>--registry<span class="w"> </span>https://api.alloy-it.io
+</span></code></pre></div>
 <hr />
 <h3 id="authentication-failed-private-or-org-blueprints">Authentication failed (private or org blueprints)<a class="headerlink" href="#authentication-failed-private-or-org-blueprints" title="Permanent link">&para;</a></h3>
 <p>For private or organization blueprints, the registry may require credentials. Set them before running:</p>
@@ -1875,7 +1875,7 @@
 <hr />
 <h3 id="blueprint-not-found-404-or-unknown-repository">Blueprint not found (404 or "unknown repository")<a class="headerlink" href="#blueprint-not-found-404-or-unknown-repository" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Check the blueprint name and tag (e.g. <code>community/arm-none-eabi</code>, <code>community/raspberry-pi-arm64:latest</code>). Browse <a href="https://alloy-it.io">Alloy Hub</a> to confirm the exact name and available tags.</li>
+<li>Check the blueprint name and tag (e.g. <code>community/nordic/nrf91:1.1.3</code>, <code>community/raspberry-pi-arm64:1.0.0</code>). Browse <a href="https://alloy-it.io">Alloy Hub</a> to confirm the exact name and available tags.</li>
 <li>For a custom registry, ensure the repository path and tag exist and that your credentials have access.</li>
 </ul>
 <hr />
@@ -1901,7 +1901,7 @@
 <hr />
 <h3 id="permission-denied-or-cannot-write">Permission denied or "cannot write"<a class="headerlink" href="#permission-denied-or-cannot-write" title="Permanent link">&para;</a></h3>
 <p>Most provisioning tasks need root (e.g. installing packages, writing to <code>/opt</code>, <code>/etc</code>). Run with <code>sudo</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/arm-none-eabi
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/nordic/nrf91:1.1.3
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Tasks that use <code>run_as: someuser</code> still require the process to start as root so the provisioner can switch user where needed.</p>
@@ -1924,12 +1924,12 @@
 <hr />
 <h2 id="re-provisioning-and-state">Re-provisioning and state<a class="headerlink" href="#re-provisioning-and-state" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Re-running the provisioner is safe: it skips completed tasks (tracked in <code>alloy.state.yml</code>). To force a full re-run, remove the state file and run again:
-  <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rm<span class="w"> </span>/path/to/blueprint/alloy.state.yml
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
-</span></code></pre></div></li>
-<li>For blueprint from registry: <code>sudo alloy-provisioner install community/arm-none-eabi</code> again will re-use the pulled blueprint and only re-run tasks that need to run.</li>
+<li>Re-running the provisioner is safe: it skips completed tasks (tracked in <code>alloy.state.yml</code>). To force a full re-run, remove the state file and run again:</li>
 </ul>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rm<span class="w"> </span>/path/to/blueprint/alloy.state.yml
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+</span></code></pre></div>
+- For blueprint from registry: <code>sudo alloy-provisioner install community/nordic/nrf91:1.1.3</code> again will re-use the pulled blueprint and only re-run tasks that need to run.</p>
 <hr />
 <h2 id="getting-more-help">Getting more help<a class="headerlink" href="#getting-more-help" title="Permanent link">&para;</a></h2>
 <ul>

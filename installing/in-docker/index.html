@@ -1636,7 +1636,7 @@
 <li><strong>From a local blueprint directory</strong> using <code>--blueprint-dir</code>.</li>
 </ol>
 <p>Registry example (Alloy Hub):</p>
-<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">ARG</span><span class="w"> </span><span class="nv">BLUEPRINT_REF</span><span class="o">=</span>community/arm-none-eabi:latest
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">ARG</span><span class="w"> </span><span class="nv">BLUEPRINT_REF</span><span class="o">=</span>community/nordic/nrf91:1.1.3
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">RUN</span><span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--docker<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">BLUEPRINT_REF</span><span class="si">}</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 <p>Local folder example (checked into your repo/build context):</p>
