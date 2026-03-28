@@ -1588,7 +1588,7 @@
 <p>Alternatively, if the blueprint is in the alloy-catalog GitHub repo, you can clone the relevant directory directly:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Find the blueprint directory in alloy-catalog</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/alloy-it/alloy-catalog.git
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cp<span class="w"> </span>-r<span class="w"> </span>alloy-catalog/blueprints/arm-gnu/arm-none-eabi<span class="w"> </span>./my-blueprint
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cp<span class="w"> </span>-r<span class="w"> </span>alloy-catalog/blueprints/nordic/nrf91<span class="w"> </span>./my-blueprint
 </span></code></pre></div>
 <hr />
 <h2 id="3-understand-the-existing-structure">3. Understand the existing structure<a class="headerlink" href="#3-understand-the-existing-structure" title="Permanent link">&para;</a></h2>
@@ -1668,7 +1668,7 @@
 <hr />
 <h2 id="7-commit">7. Commit<a class="headerlink" href="#7-commit" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>add<span class="w"> </span>manifest.yml<span class="w"> </span><span class="m">00</span>-system.yml<span class="w"> </span><span class="m">30</span>-project.yml<span class="w"> </span>alloy.lock.yml
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: extend arm-none-eabi blueprint with project tools&quot;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: extend nrf91 blueprint with project tools&quot;</span>
 </span></code></pre></div>
 <p>Commit the blueprint directory and the lockfile. Do not commit <code>alloy.state.yml</code> or <code>.env</code>.</p>
 <hr />
