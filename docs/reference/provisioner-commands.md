@@ -91,14 +91,14 @@ sudo -E alloy-provisioner install --blueprint-dir "$ALLOY_BLUEPRINT_DIR"
 
 ## Flags
 
-| Flag             | Description                                                                 | Default           |
-| ---------------- | --------------------------------------------------------------------------- | ----------------- |
-| `--blueprint-dir` | Path to the blueprint directory. Overrides `ALLOY_BLUEPRINT_DIR`.             | `$HOME/.alloy-it` |
-| `--registry`      | Registry base URL for pulling blueprints. Overrides `ALLOY_REGISTRY`.         | `api.alloy-it.io` |
-| `--tag`           | Blueprint tag/version for `install`/`clone` when not provided as `name:tag`.  | none (must be specified) |
-| `--platform`      | Force OS/architecture (e.g. `linux/arm64`).                                   | Auto-detect       |
-| `--env-file`      | Path to an env file for variables and credentials (see [Variables](../blueprints/variables.md)). | – |
-| `--version`       | Print version and exit.                                                        | –                 |
+| Flag              | Description                                                                  | Default                  |
+| ----------------- | ---------------------------------------------------------------------------- | ------------------------ |
+| `--blueprint-dir` | Path to the blueprint directory. Overrides `ALLOY_BLUEPRINT_DIR`.            | `$HOME/.alloy-it`        |
+| `--registry`      | Registry base URL for pulling blueprints. Overrides `ALLOY_REGISTRY`.        | `api.alloy-it.io`        |
+| `--tag`           | Blueprint tag/version for `install`/`clone` when not provided as `name:tag`. | none (must be specified) |
+| `--platform`      | Force OS/architecture (e.g. `linux/arm64`).                                  | Auto-detect              |
+| `--env-file`      | Path to an env file for variables and credentials (see blueprint variables). | –                        |
+| `--version`       | Print version and exit.                                                      | –                        |
 
 Legacy: `-pull`, `-repository` are still supported; prefer the `install` and `clone` subcommands.
 
@@ -109,10 +109,10 @@ Legacy: `-pull`, `-repository` are still supported; prefer the `install` and `cl
 Use these flags when you want blueprint `exclude` filters to be evaluated for a
 specific runtime context:
 
-| Flag        | Activates tag | Typical usage |
-| ----------- | ------------- | ------------- |
-| `--docker`  | `docker`      | Docker image builds and containerized provisioning |
-| `--wsl2`    | `wsl2`        | WSL2 guest provisioning |
+| Flag       | Activates tag | Typical usage                                      |
+| ---------- | ------------- | -------------------------------------------------- |
+| `--docker` | `docker`      | Docker image builds and containerized provisioning |
+| `--wsl2`   | `wsl2`        | WSL2 guest provisioning                            |
 
 Example (`docker` tag active):
 
@@ -128,7 +128,7 @@ alloy-provisioner install --docker community/nrf91:1.0.13
 | ------------------------- | ------------------------------------------------------ |
 | `ALLOY_BLUEPRINT_DIR`     | Blueprint directory path (same as `-blueprint-dir`).   |
 | `ALLOY_REGISTRY`          | Registry URL for pulling blueprints.                   |
-| `ALLOY_REGISTRY_USERNAME` | Username for private registry authentication.         |
+| `ALLOY_REGISTRY_USERNAME` | Username for private registry authentication.          |
 | `ALLOY_REGISTRY_PASSWORD` | Password or token for private registry authentication. |
 | `ALLOY_ENV_DOCKER`        | If set to `1`, activates the `docker` environment tag. |
 | `ALLOY_ENV_WSL2`          | If set to `1`, activates the `wsl2` environment tag.   |
