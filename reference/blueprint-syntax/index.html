@@ -2203,7 +2203,7 @@ Docker activates <code>docker</code>).</p>
 </span></code></pre></div>
 <p>You can combine <code>exclude</code> with <code>skip_if</code>: both are checked independently and either condition can cause the task to be skipped.</p>
 <h3 id="run_as"><code>run_as</code><a class="headerlink" href="#run_as" title="Permanent link">&para;</a></h3>
-<p>Run the task as a specific user instead of root. Use <code>{{.Vars.DEV_USERNAME}}</code> rather than a hardcoded username — the provisioner auto-detects the correct value from the sudo context at runtime:</p>
+<p>Run the task as a specific user instead of root. Use <code>{{.Vars.DEV_USERNAME}}</code> rather than a hardcoded username; the provisioner auto-detects the correct value from the sudo context at runtime:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">West&quot;</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run_command&quot;</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">run_as</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{.Vars.DEV_USERNAME}}&quot;</span>

@@ -1631,7 +1631,7 @@
 <h2 id="3-environment-file-env">3. Environment file (<code>.env</code>)<a class="headerlink" href="#3-environment-file-env" title="Permanent link">&para;</a></h2>
 <p>Use a <code>.env</code> file for values that change per machine or contain credentials: registry tokens, private artifact URLs, or variable overrides. These should <strong>never be committed</strong>.</p>
 <p>Create a <code>.env</code> file in your blueprint directory:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># .env — never commit this file</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># .env (never commit this file)</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">GITLAB_TOKEN</span><span class="o">=</span>glpat-xxxxxxxxxxxx
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">SDK_DESTINATION</span><span class="o">=</span>/opt/my-sdk
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">ALLOY_REGISTRY_USERNAME</span><span class="o">=</span>myuser
@@ -1651,7 +1651,7 @@
 <p>When using <strong>alloy-host</strong>, pass the env file at init time or place it in the blueprint directory; alloy-host picks it up when running the provisioner inside the guest.</p>
 <hr />
 <h2 id="4-dev_username-auto-detection">4. DEV_USERNAME auto-detection<a class="headerlink" href="#4-dev_username-auto-detection" title="Permanent link">&para;</a></h2>
-<p>Blueprints that run tasks as a non-root user (via <code>run_as:</code>) use a <code>DEV_USERNAME</code> variable to identify that user. The provisioner resolves it automatically — <strong>you do not need to set it</strong> for standard use.</p>
+<p>Blueprints that run tasks as a non-root user (via <code>run_as:</code>) use a <code>DEV_USERNAME</code> variable to identify that user. The provisioner resolves it automatically. <strong>You do not need to set it</strong> for standard use.</p>
 <p>Resolution order:</p>
 <ol>
 <li><code>DEV_USERNAME</code> already set in the environment or <code>.env</code> → used as-is, no override.</li>
@@ -1681,8 +1681,8 @@
 </span></code></pre></div>
 <p>When a required variable is missing:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Error: missing required environment variables:
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  GITLAB_TOKEN — Personal access token for the private artifact registry
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  SDK_DESTINATION — Where to install the proprietary SDK
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  GITLAB_TOKEN: Personal access token for the private artifact registry
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  SDK_DESTINATION: Where to install the proprietary SDK
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Set them in a .env file and run:
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  set -a &amp;&amp; source .env &amp;&amp; set +a &amp;&amp; alloy-provisioner install --blueprint-dir .

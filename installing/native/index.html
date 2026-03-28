@@ -1695,7 +1695,7 @@
 </div>
 <p>If the blueprint declares <code>required_env:</code> in <code>manifest.yml</code>, the provisioner validates all required variables are set before running and exits with a clear error if any are missing.</p>
 <h3 id="dev_username-is-auto-detected">DEV_USERNAME is auto-detected<a class="headerlink" href="#dev_username-is-auto-detected" title="Permanent link">&para;</a></h3>
-<p>Blueprints that install SDKs or tools as a non-root user rely on a <code>DEV_USERNAME</code> variable. You do not need to set this manually. When you run <code>sudo alloy-provisioner</code>, the provisioner automatically detects the calling user from <code>$SUDO_USER</code> (or falls back to <code>$USER</code>) and uses it — no <code>.env</code> entry needed.</p>
+<p>Blueprints that install SDKs or tools as a non-root user rely on a <code>DEV_USERNAME</code> variable. You do not need to set this manually. When you run <code>sudo alloy-provisioner</code>, the provisioner automatically detects the calling user from <code>$SUDO_USER</code> (or falls back to <code>$USER</code>) and uses it. No <code>.env</code> entry is needed.</p>
 <p>You only need to set <code>DEV_USERNAME</code> explicitly when provisioning for a different user than the one running <code>sudo</code>, or in CI environments where both <code>SUDO_USER</code> and <code>USER</code> resolve to <code>root</code>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># .env</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">DEV_USERNAME</span><span class="o">=</span>ci-build-user
