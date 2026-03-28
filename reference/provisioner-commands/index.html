@@ -1310,6 +1310,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="alloy-provisioner clone <name[:tag]>">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-list-project-browse-available-blueprints" class="md-nav__link">
+    <span class="md-ellipsis">
+      --list &lt;project&gt;: browse available blueprints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1512,6 +1527,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="alloy-provisioner clone <name[:tag]>">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-list-project-browse-available-blueprints" class="md-nav__link">
+    <span class="md-ellipsis">
+      --list &lt;project&gt;: browse available blueprints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1605,18 +1635,35 @@ Use <code>install --blueprint-dir ...</code> when blueprint files are already on
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Inspect the blueprint, then:</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>~/.alloy-it/blueprints/community/raspberry-pi
 </span></code></pre></div>
+<h4 id="-list-project-browse-available-blueprints"><code>--list &lt;project&gt;</code>: browse available blueprints<a class="headerlink" href="#-list-project-browse-available-blueprints" title="Permanent link">&para;</a></h4>
+<p>List all blueprints available in a project without cloning anything. Community blueprints do not require authentication.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>alloy-provisioner<span class="w"> </span>clone<span class="w"> </span>--list<span class="w"> </span>community
+</span></code></pre></div>
+<p>Output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>BLUEPRINT                                           TAGS
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>community/nordic/nrf91                              1.1.3
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>community/nordic/nrf52                              1.1.3
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>community/raspberry-pi/raspberry-pi-5               1.0.3
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>community/raspberry-pi/raspberry-pi-4-model-b       1.0.2
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>community/espressif/esp32-idf                       1.0.0
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>...
+</span></code></pre></div>
+<p>Use the blueprint name and tag from the list as the argument to <code>clone</code> or <code>install</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>alloy-provisioner<span class="w"> </span>clone<span class="w"> </span>community/nordic/nrf91:1.1.3<span class="w"> </span>--output<span class="w"> </span>./my-blueprint
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>community/nordic/nrf91:1.1.3
+</span></code></pre></div>
 <h3 id="running-from-a-local-blueprint">Running from a local blueprint<a class="headerlink" href="#running-from-a-local-blueprint" title="Permanent link">&para;</a></h3>
 <p>If the blueprint is already on disk (e.g. after <code>clone</code>, or a local project):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Use this when blueprint files are already present locally (for example in a repo
 folder or after <code>clone</code>).</p>
 <p>For Docker builds where you want tasks with <code>exclude: [docker]</code> to be skipped:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--docker<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--docker<span class="w"> </span>--blueprint-dir<span class="w"> </span>/path/to/blueprint
 </span></code></pre></div>
 <p>Or set the directory via environment variable:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOY_BLUEPRINT_DIR</span><span class="o">=</span>/path/to/blueprint
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ALLOY_BLUEPRINT_DIR</span><span class="s2">&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ALLOY_BLUEPRINT_DIR</span><span class="o">=</span>/path/to/blueprint
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>-E<span class="w"> </span>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--blueprint-dir<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ALLOY_BLUEPRINT_DIR</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 <hr />
 <h2 id="flags">Flags<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h2>
@@ -1688,7 +1735,7 @@ specific runtime context:</p>
 </tbody>
 </table>
 <p>Example (<code>docker</code> tag active):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--docker<span class="w"> </span>community/nrf91:1.0.13
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>alloy-provisioner<span class="w"> </span>install<span class="w"> </span>--docker<span class="w"> </span>community/nrf91:1.0.13
 </span></code></pre></div>
 <hr />
 <h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
